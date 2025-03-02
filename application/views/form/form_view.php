@@ -666,23 +666,21 @@
             const b9 = a7 - b8;
             document.querySelector('input[name="b9"]').value = b9;
 
-
             // Hitung nilai c14
             const c14 = c12 + c13;
             document.querySelector('input[name="c14"]').value = c14;
 
-            // Hitung nilai c14
+            // Hitung nilai d18
             const d18 = d17_a + d17_b;
             document.querySelector('input[name="d18"]').value = d18;
 
-            // Hitung nilai c14
+            // Hitung nilai d16
             const d16 = d15 - c14;
             document.querySelector('input[name="d16"]').value = d16;
 
-            // Hitung nilai c14
+            // Hitung nilai e19
             const e19 = d16 + d18;
             document.querySelector('input[name="e19"]').value = e19;
-
         }
 
         // Tambahkan event listener untuk input a4 dan a6
@@ -759,7 +757,6 @@
         }
 
         // Fungsi untuk menghitung nilai b11 (Penghasilan Kena Pajak)
-        // Fungsi untuk menghitung nilai b11 (Penghasilan Kena Pajak)
         function calculateB11() {
             const b9 = parseFloat(document.querySelector('input[name="b9"]').value.replace(/\./g, '')) || 0;
             const b10 = parseFloat(document.querySelector('input[name="b10"]').value.replace(/\./g, '')) || 0;
@@ -788,29 +785,21 @@
         // Hapus format angka sebelum form disubmit
         document.getElementById('form-identitas').addEventListener('submit', function(e) {
             const b10Input = document.querySelector('input[name="b10"]');
-            b10Input.value = unformatNumber(b10Input.value);
+            b10Input.value = b10Input.value.replace(/\./g, '');
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
+        // Fungsi untuk mengatur readonly dan nilai c12
+        function toggleC12Input() {
             const c12Checkbox = document.getElementById('c12_checkbox');
             const c12Input = document.getElementById('c12_input');
 
-            // Fungsi untuk mengatur readonly dan nilai c12
-            function toggleC12Input() {
-                if (c12Checkbox.checked) {
-                    c12Input.removeAttribute('readonly'); // Hapus readonly jika checkbox dicentang
-                } else {
-                    c12Input.setAttribute('readonly', true); // Set readonly jika checkbox tidak dicentang
-                    c12Input.value = 0; // Set nilai c12 ke 0 jika checkbox tidak dicentang
-                }
+            if (c12Checkbox.checked) {
+                c12Input.removeAttribute('readonly'); // Enable input if checkbox is checked
+            } else {
+                c12Input.setAttribute('readonly', true); // Disable input if checkbox is unchecked
+                c12Input.value = 0; // Reset value to 0
             }
-
-            // Panggil fungsi saat halaman dimuat
-            toggleC12Input();
-
-            // Tambahkan event listener untuk checkbox c12_checkbox
-            c12Checkbox.addEventListener('change', toggleC12Input);
-        });
+        }
 
         // Tambahkan event listener untuk checkbox c12_checkbox
         document.getElementById('c12_checkbox').addEventListener('change', toggleC12Input);
@@ -848,6 +837,106 @@
             toggleE20Checkboxes();
         });
 
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("DOM fully loaded and parsed");
+
+            const f21CheckboxA = document.getElementById('f21_checkbox_a');
+            const f21CheckboxB = document.getElementById('f21_checkbox_b');
+            const f21CheckboxC = document.getElementById('f21_checkbox_c');
+            const f21Input = document.querySelector('input[name="f21"]');
+            const gCheckboxB = document.getElementById('g_checkbox_b');
+            const gCheckboxE = document.getElementById('g_checkbox_e');
+            const gCheckboxG = document.getElementById('g_checkbox_g');
+            const gCheckboxI = document.getElementById('g_checkbox_i');
+            const gCheckboxJ = document.getElementById('g_checkbox_j');
+            const gCheckboxK = document.getElementById('g_checkbox_k');
+
+            if (!f21CheckboxA || !f21CheckboxB || !f21CheckboxC || !f21Input || !gCheckboxB || !gCheckboxE || !gCheckboxG || !gCheckboxI || !gCheckboxJ || !gCheckboxK) {
+                console.error("One or more elements are missing!");
+                return;
+            }
+
+            function updateF21Value() {
+                const d16 = parseFloat(document.querySelector('input[name="d16"]').value) || 0;
+                f21Input.value = (1 / 12 * d16).toFixed(2);
+                console.log("Updated f21 value to:", f21Input.value);
+            }
+
+            function toggleCheckboxes(checkbox, disableCheckboxes) {
+                if (checkbox.checked) {
+                    disableCheckboxes.forEach(cb => {
+                        cb.checked = false;
+                        cb.disabled = true;
+                        console.log(`Disabled checkbox: ${cb.id}`);
+                    });
+                } else {
+                    disableCheckboxes.forEach(cb => {
+                        cb.disabled = false;
+                        console.log(`Enabled checkbox: ${cb.id}`);
+                    });
+                }
+            }
+
+            function handleF21CheckboxA() {
+                console.log("f21_checkbox_a changed:", f21CheckboxA.checked);
+                if (f21CheckboxA.checked) {
+                    updateF21Value();
+                    toggleCheckboxes(f21CheckboxA, [gCheckboxB, gCheckboxE, gCheckboxG, gCheckboxI, gCheckboxJ, gCheckboxK]);
+                    f21CheckboxB.checked = false;
+                    f21CheckboxC.checked = false;
+                    f21CheckboxB.disabled = true;
+                    f21CheckboxC.disabled = true;
+                    console.log("Disabled f21_checkbox_b and f21_checkbox_c");
+                } else {
+                    toggleCheckboxes(f21CheckboxA, [gCheckboxB, gCheckboxE, gCheckboxG, gCheckboxI, gCheckboxJ, gCheckboxK]);
+                    f21CheckboxB.disabled = false;
+                    f21CheckboxC.disabled = false;
+                    console.log("Enabled f21_checkbox_b and f21_checkbox_c");
+                }
+            }
+
+            function handleF21CheckboxB() {
+                console.log("f21_checkbox_b changed:", f21CheckboxB.checked);
+                if (f21CheckboxB.checked) {
+                    gCheckboxJ.checked = true;
+                    toggleCheckboxes(f21CheckboxB, [gCheckboxB, gCheckboxE, gCheckboxG, gCheckboxI, gCheckboxK]);
+                    f21CheckboxA.checked = false;
+                    f21CheckboxC.checked = false;
+                    f21CheckboxA.disabled = true;
+                    f21CheckboxC.disabled = true;
+                    console.log("Disabled f21_checkbox_a and f21_checkbox_c");
+                } else {
+                    toggleCheckboxes(f21CheckboxB, [gCheckboxB, gCheckboxE, gCheckboxG, gCheckboxI, gCheckboxK]);
+                    f21CheckboxA.disabled = false;
+                    f21CheckboxC.disabled = false;
+                    console.log("Enabled f21_checkbox_a and f21_checkbox_c");
+                }
+            }
+
+            function handleF21CheckboxC() {
+                console.log("f21_checkbox_c changed:", f21CheckboxC.checked);
+                if (f21CheckboxC.checked) {
+                    gCheckboxG.checked = true;
+                    toggleCheckboxes(f21CheckboxC, [gCheckboxB, gCheckboxE, gCheckboxI, gCheckboxJ, gCheckboxK]);
+                    f21CheckboxA.checked = false;
+                    f21CheckboxB.checked = false;
+                    f21CheckboxA.disabled = true;
+                    f21CheckboxB.disabled = true;
+                    console.log("Disabled f21_checkbox_a and f21_checkbox_b");
+                } else {
+                    toggleCheckboxes(f21CheckboxC, [gCheckboxB, gCheckboxE, gCheckboxI, gCheckboxJ, gCheckboxK]);
+                    f21CheckboxA.disabled = false;
+                    f21CheckboxB.disabled = false;
+                    console.log("Enabled f21_checkbox_a and f21_checkbox_b");
+                }
+            }
+
+            f21CheckboxA.addEventListener('change', handleF21CheckboxA);
+            f21CheckboxB.addEventListener('change', handleF21CheckboxB);
+            f21CheckboxC.addEventListener('change', handleF21CheckboxC);
+
+            console.log("Event listeners added for f21_checkbox_a, f21_checkbox_b, and f21_checkbox_c");
+        });
     </script>
 </body>
 
