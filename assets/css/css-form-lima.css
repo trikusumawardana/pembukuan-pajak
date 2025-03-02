@@ -1,0 +1,527 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid #000;
+}
+
+.form-left,
+.form-right {
+    flex: 1; /* Tetapkan lebar default */
+}
+
+.form-center {
+    flex: 2; /* Perbesar lebar bagian form-center */
+    text-align: center;
+    border-right: 1px solid #000;
+}
+
+
+.form-left {
+    text-align: center;
+    border-right: 1px solid #000;
+}
+
+.form-left .btn-grey {
+    background-color: #ccc;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    left: 10%;
+    text-decoration: none; /* Remove underline */
+    color: black; /* Set the text color */
+    display: inline-block; /* Make it behave like a button */
+    text-align: center; /* Center the text */
+}
+
+.form-left .btn-grey:hover {
+    background-color: #bbb; /* Optional: Add a hover effect */
+}
+
+.form-left .vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.form-left h1 {
+    font-size: 48px;
+    margin: 10px 0;
+}
+
+.form-left .label-right {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    align-items: center;
+}
+
+.form-center {
+    text-align: center;
+    border-right: 1px solid #000;
+}
+
+.form-center h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form-center .form-info p {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.form-center .form-info ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    text-align: left;
+    margin: 50px 0 0 10px; /* Menambahkan margin atas untuk jarak */
+}
+
+.warning {
+    text-align: center; /* Memusatkan teks secara horizontal */
+    font-size: 12px;
+    margin-top: 10px;
+    width: 100%; /* Pastikan elemen mengambil seluruh lebar halaman */
+}
+
+
+.form-right {
+    text-align: center;
+    position: relative;
+}
+
+.form-right .btn-grey {
+    background-color: #ccc;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    left: 10%;
+    text-decoration: none; /* Remove underline */
+    color: black; /* Set the text color */
+    display: inline-block; /* Make it behave like a button */
+    text-align: center; /* Center the text */
+}
+
+.form-right .btn-grey:hover {
+    background-color: #bbb; /* Optional: Add a hover effect */
+}
+
+
+.form-right .year-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px; /* Reduced spacing */
+}
+
+.form-right .year-box {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000;
+    font-size: 24px;
+    line-height: 40px;
+    text-align: center;
+    margin: 0 3px; /* Reduced spacing between year boxes */
+
+}
+
+.form-right .vertical-text-right {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-weight: bold;
+    margin: 1px 10px;
+    top: -15%;
+    position: relative;
+}
+
+.form-dates {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    display: flex;
+    align-items: center;
+    gap: 2px; /* Reduced gap between elements */
+}
+
+.form-dates .date-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px; /* Reduced spacing */
+}
+
+.form-dates .date-row div {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000;
+    text-align: center;
+    line-height: 30px;
+    margin: 0 1px;
+}
+
+.form-dates p {
+    margin: 0 5px; /* Reduced spacing */
+}
+
+.bl-th {
+    position: absolute;
+    top: 53%;
+    left: 14%;
+    display: flex;
+    align-items: center;
+}
+
+.bl-th label {
+    width: 50px;
+    text-align: center;
+    font-weight: bold;
+    width: 30px;
+    height: 50px;
+    text-align: center;
+    line-height: 30px;
+    margin: 0 5px;
+}
+
+.bl-th-dua {
+    position: absolute;
+    top: 53%;
+    left: 60%;
+    display: flex;
+    align-items: center;
+}
+
+.bl-th-dua label {
+    width: 50px;
+    text-align: center;
+    font-weight: bold;
+    width: 30px;
+    height: 50px;
+    text-align: center;
+    line-height: 30px;
+    margin: 0 5px;
+}
+
+#th {
+    margin-left: 30px;
+}
+
+.form-options {
+    display: flex;
+    justify-content: center; /* Memusatkan elemen */
+    gap: 20px; /* Menambahkan jarak lebih besar antara radio buttons */
+    margin: 0; /* Menghilangkan margin untuk mendekatkan ke elemen sebelumnya */
+    position: absolute; /* Menambahkan positioning absolute untuk pengaturan manual */
+    top: 70%; /* Menentukan posisi top agar lebih dekat dengan elemen sebelumnya */
+    left: 20%; /* Menyesuaikan posisi horizontal */
+    width: 60%; /* Mengatur lebar agar sebaris dengan elemen lainnya */
+}
+
+.form-options label {
+    display: flex;
+    align-items: center; /* Mengatur teks dan radio button berada di tengah secara vertikal */
+    gap: 5px; /* Jarak antara radio button dan teks */
+}
+
+.spt {
+    margin-top: 10px;
+}
+
+.spt input[type="checkbox"] {
+    width: 30px;
+    border: 1px solid #000;
+    text-align: center;
+    margin-right: -5px;
+}
+
+.spt input[type="text"] {
+    width: 30px;
+    border: 1px solid #000;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.form-section {
+    display: flex;
+    align-items: center;
+}
+
+/* Section Container */
+.section-container-last {
+    display: flex;
+    flex-direction: column;
+    padding: 0 56px 0 50px;
+    margin-bottom: 80px;
+}
+
+
+/* Taxpayer Section */
+.taxpayer-section {
+    display: flex; /* Menjadikan taxpayer-section sebagai flex container */
+    align-items: center; /* Menyelaraskan elemen secara vertikal di tengah */
+    padding: 10px;
+    background-color: #ffff99;
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+
+.taxpayer-info {
+    display: flex;
+    flex-direction: column; /* Menempatkan <p> di dalam taxpayer-info secara vertikal */
+    margin-right: 10px; /* Jarak antara informasi pajak dan kotak kuning */
+}
+
+.taxpayer-info p {
+    margin: 0;
+    padding: 5px 0;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.yellow-box {
+    background-color: #ffff99;
+    padding: 10px;
+    width: 88%;
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.yellow-box p {
+    margin: 0;
+    padding: 5px 0;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.yellow-box p:nth-child(even) {
+    border-top: 1px solid #000;
+}
+
+
+
+/* Checkbox Column */
+.checkbox-column {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Individual Checkbox Label */
+.checkbox-column label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+/* Checkbox Input */
+.checkbox-column input[type="checkbox"] {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+}
+
+/* FORM-VIEW-LIMA */
+.halaman {
+    position: absolute;
+    top: -10px;
+    left: 100px;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.income-table {
+    width: 92%;
+    border-collapse: collapse;
+    margin: auto; /* Memusatkan tabel secara horizontal */
+}
+
+.income-table input.input-cell {
+    width: 100%; /* Mengatur input agar memenuhi seluruh lebar sel */
+    height: 100%; /* Mengatur input agar memenuhi seluruh tinggi sel */
+    border: none; /* Menghilangkan border */
+    padding: 5px; /* Menghilangkan padding */
+    margin: 0; /* Menghilangkan margin */
+    box-sizing: border-box; /* Agar padding tidak menambah ukuran input */
+    text-align: right; /* Menyelaraskan teks ke kanan */
+    
+}
+
+.income-table td {
+    position: relative; /* Membuat sel sebagai kotak pembungkus */
+}
+
+.income-table input.input-cell {
+    position: absolute; /* Menempatkan input di posisi absolut dalam sel */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: right; /* Teks input berada di sebelah kanan */
+}
+
+.income-table input.input-cell:focus {
+    outline: none; /* Menghilangkan outline saat input fokus */
+}
+
+
+.income-table th, 
+.income-table td {
+    padding: 8px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.bordered-cell {
+    border: 1px solid #000; /* Menambahkan border ke setiap sel */
+}
+
+.income-table th {
+    font-weight: bold;
+}
+
+.grey-cell {
+    background-color: #ccc !important;
+    color: black;
+}
+
+.yellow-cell {
+    background-color: #ffff99;
+    font-weight: bold;
+}
+.yellow-cell .input-cell{
+    background-color: #ffff99;
+    font-weight: bold;
+}
+
+.total-row .yellow-cell {
+    text-align: right;
+}
+
+.small-text {
+    font-size: 10px;
+    text-align: right;
+
+    margin-right: 60px;
+    font-style: italic;
+}
+
+.table-header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 9px;
+    margin: 20px auto; /* Memberikan jarak atas dan bawah */
+    line-height: 1.2; /* Mengatur jarak antar baris teks */
+}
+
+.table-header-position {
+    position: absolute !important;
+    margin-left: 60px;
+    top: 420px;
+}
+
+.table-header-position-dua {
+    position: absolute !important;
+    margin-left: 60px !important;
+    top: 770px !important;
+}
+
+.income-table .input-cell:focus {
+    outline: none;
+}
+
+.income-table .yellow-cell {
+    background-color: #ffff99;
+    font-weight: bold;
+}
+
+.form-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px; /* Ensure some spacing between table and controls */
+    margin-left: 60px;
+    margin-bottom: 100px;
+}
+
+.form-controls button {
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #ccc;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.form-controls button:hover {
+    background-color: #bbb;
+}
+
+.form-controls label {
+    font-size: 14px;
+}
+
+.form-controls input[type="text"] {
+    width: 50px;
+    text-align: center;
+    padding: 5px;
+    margin-left: 5px;
+    border: 1px solid #000;
+}
+
+/* Additional CSS to ensure the neto cells are always yellow and others turn white when data is entered */
+
+.new-input {
+    padding: 12px;
+}
+
+.empty-input {
+    background-color: #ffcccc; /* Red background for empty inputs */
+}
+
+.neto-cell {
+    background-color: #ffff99; /* Yellow background for "PENGHASILAN NETO" cells */
+}
+
+.input-cell {
+    background-color: white; /* Set default background color to white */
+}
+
+.input-cell-jenis {
+    text-align: left !important;
+}
+
+/* Atur jarak untuk elemen di sekitar komentar "disini" */
+.abjad {
+    text-align: left;
+    font-weight: bold;
+    font-size: 9px;
+    line-height: 1.2;
+    margin-bottom: 0; /* Hilangkan margin bawah */
+}
+
+.income-table {
+    margin-top: 0; /* Hilangkan margin atas untuk mendekatkan tabel ke komentar */
+}
+
+.small-text {
+    font-size: 10px;
+    text-align: right;
+    margin-right: 60px;
+    margin-bottom: 0; /* Hilangkan margin bawah untuk teks kecil */
+    font-style: italic;
+}

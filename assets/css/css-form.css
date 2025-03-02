@@ -1,0 +1,897 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid #000;
+}
+
+.form-left,
+.form-right {
+    flex: 1; /* Tetapkan lebar default */
+}
+
+.form-center {
+    flex: 2; /* Perbesar lebar bagian form-center */
+    text-align: center;
+    border-right: 1px solid #000;
+}
+
+
+.form-left {
+    text-align: center;
+    border-right: 1px solid #000;
+}
+
+.form-left .btn-grey {
+    background-color: #ccc;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    left: 10%;
+    text-decoration: none; /* Remove underline */
+    color: black; /* Set the text color */
+    display: inline-block; /* Make it behave like a button */
+    text-align: center; /* Center the text */
+}
+
+.form-left .btn-grey:hover {
+    background-color: #bbb; /* Optional: Add a hover effect */
+}
+
+.form-left .vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.form-left h1 {
+    font-size: 48px;
+    margin: 10px 0;
+}
+
+.form-left .label-right {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    align-items: center;
+}
+
+.form-center {
+    text-align: center;
+    border-right: 1px solid #000;
+}
+
+.form-center h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form-center .form-info p {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.form-center .form-info ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    text-align: left;
+    margin: 50px 0 0 10px; /* Menambahkan margin atas untuk jarak */
+}
+
+.warning {
+    text-align: center; /* Memusatkan teks secara horizontal */
+    font-size: 12px;
+    margin-top: 10px;
+    width: 100%; /* Pastikan elemen mengambil seluruh lebar halaman */
+}
+
+
+.form-right {
+    text-align: center;
+    position: relative;
+}
+
+.form-right .btn-grey {
+    background-color: #ccc;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    left: 10%;
+    text-decoration: none; /* Remove underline */
+    color: black; /* Set the text color */
+    display: inline-block; /* Make it behave like a button */
+    text-align: center; /* Center the text */
+}
+
+.form-right .btn-grey:hover {
+    background-color: #bbb; /* Optional: Add a hover effect */
+}
+
+
+.form-right .year-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px; /* Reduced spacing */
+}
+
+.form-right .year-box {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000;
+    font-size: 24px;
+    line-height: 40px;
+    text-align: center;
+    margin: 0 3px; /* Reduced spacing between year boxes */
+
+}
+
+.form-right .vertical-text-right {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-weight: bold;
+    margin: 1px 10px;
+    top: -15%;
+    position: relative;
+}
+
+.form-dates {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    display: flex;
+    align-items: center;
+    gap: 2px; /* Reduced gap between elements */
+}
+
+.form-dates .date-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px; /* Reduced spacing */
+}
+
+.form-dates .date-row div {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000;
+    text-align: center;
+    line-height: 30px;
+    margin: 0 1px;
+}
+
+.form-dates p {
+    margin: 0 5px; /* Reduced spacing */
+}
+
+.bl-th {
+    position: absolute;
+    top: 53%;
+    left: 14%;
+    display: flex;
+    align-items: center;
+}
+
+.bl-th label {
+    width: 50px;
+    text-align: center;
+    font-weight: bold;
+    width: 30px;
+    height: 50px;
+    text-align: center;
+    line-height: 30px;
+    margin: 0 5px;
+}
+
+.bl-th-dua {
+    position: absolute;
+    top: 53%;
+    left: 60%;
+    display: flex;
+    align-items: center;
+}
+
+.bl-th-dua label {
+    width: 50px;
+    text-align: center;
+    font-weight: bold;
+    width: 30px;
+    height: 50px;
+    text-align: center;
+    line-height: 30px;
+    margin: 0 5px;
+}
+
+#th {
+    margin-left: 30px;
+}
+
+.form-options {
+    display: flex;
+    justify-content: center; /* Memusatkan elemen */
+    gap: 20px; /* Menambahkan jarak lebih besar antara radio buttons */
+    margin: 0; /* Menghilangkan margin untuk mendekatkan ke elemen sebelumnya */
+    position: absolute; /* Menambahkan positioning absolute untuk pengaturan manual */
+    top: 70%; /* Menentukan posisi top agar lebih dekat dengan elemen sebelumnya */
+    left: 20%; /* Menyesuaikan posisi horizontal */
+    width: 60%; /* Mengatur lebar agar sebaris dengan elemen lainnya */
+}
+
+.form-options label {
+    display: flex;
+    align-items: center; /* Mengatur teks dan radio button berada di tengah secara vertikal */
+    gap: 5px; /* Jarak antara radio button dan teks */
+}
+
+.spt {
+    margin-top: 10px;
+}
+
+.spt input[type="checkbox"] {
+    width: 30px;
+    border: 1px solid #000;
+    text-align: center;
+    margin-right: -5px;
+}
+
+.spt input[type="text"] {
+    width: 30px;
+    border: 1px solid #000;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.form-container {
+    border: 2px solid black;
+    padding: 20px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    margin: auto; /* Pusatkan container pada halaman */
+    width: 92%; /* Atur lebar relatif terhadap lebar viewport */
+}
+
+.form-section {
+    display: flex;
+    align-items: center;
+}
+
+.form-section .vertical-text {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    /* border: 1px solid black; */
+    padding: 8px;
+    text-align: left;
+}
+
+#label {
+    border-left: 2px solid black;
+}
+
+#label-bawah {
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    text-align: center;
+    font-weight: bold;
+}
+
+.empty-cell {
+    width: 20%;
+}
+
+.radio-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #e0e0e0;
+    border: 1px solid black;
+}
+
+.radio-container label {
+    margin: 0 10px;
+}
+
+.radio-container input[type="radio"] {
+    margin-right: 5px;
+}
+
+.section-container {
+    display: flex;
+    padding: 0 50px 0 50px;
+}
+
+/* Section Container */
+.section-container-last {
+    display: flex;
+    flex-direction: column;
+    padding: 0 56px 0 50px;
+    margin-bottom: 80px;
+}
+
+/* Statement Section */
+.statement-section {
+    display: flex;
+    justify-content: space-between;
+    width: 99%;
+    padding: 10px;
+    background-color: #ffff99; /* Matching yellow background */
+    border: 1px solid black;
+    padding-bottom: 30px;
+}
+
+/* Statement Header */
+.statement-header {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.statement-header label {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+.statement-header input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Statement Content */
+.statement-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 3;
+    padding: 0 20px;
+    position: relative;
+}
+
+.statement-content p {
+    margin: 0;
+    font-size: 12px;
+    text-align: justify;
+    flex-grow: 2;
+}
+
+/* Date Container */
+.date-container {
+    display: flex;
+    align-items: center;
+    background-color: #e6f0ff; /* Light blue background */
+    border: 1px solid #000;
+    padding: 5px;
+    position: absolute;
+    right: 30px;
+    top: 50px;
+}
+
+.date-container span {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.date-container input[type="text"] {
+    border: none;
+    background-color: transparent;
+    text-align: right;
+    font-weight: bold;
+    padding: 0;
+    color: #000;
+    width: 100px;
+}
+
+/* Signature Box */
+.signature-box {
+    flex: 1;
+    border: 1px solid #000;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
+
+/* Taxpayer Section */
+.taxpayer-section {
+    display: flex; /* Menjadikan taxpayer-section sebagai flex container */
+    align-items: center; /* Menyelaraskan elemen secara vertikal di tengah */
+    padding: 10px;
+    background-color: #ffff99;
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+
+.taxpayer-info {
+    display: flex;
+    flex-direction: column; /* Menempatkan <p> di dalam taxpayer-info secara vertikal */
+    margin-right: 10px; /* Jarak antara informasi pajak dan kotak kuning */
+}
+
+.taxpayer-info p {
+    margin: 0;
+    padding: 5px 0;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.yellow-box {
+    background-color: #ffff99;
+    padding: 10px;
+    width: 88%;
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.yellow-box p {
+    margin: 0;
+    padding: 5px 0;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.yellow-box p:nth-child(even) {
+    border-top: 1px solid #000;
+}
+
+
+/* Header Vertikal */
+.section-header {
+    width: 50px;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vertical-header {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 5px;
+}
+
+/* Konten Section */
+.content-section {
+    flex: 1;
+    border: 1px solid #000;
+    border-left: none;
+    padding: 15px;
+    background-color: #fff;
+}
+
+/* Paragraph Description */
+.content-section p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Checkbox Container */
+.checkbox-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Checkbox Column */
+.checkbox-column {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Individual Checkbox Label */
+.checkbox-column label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+/* Checkbox Input */
+.checkbox-column input[type="checkbox"] {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+}
+
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid #000; /* Add border around the section header */
+    border-top: 1px solid #000; /* Add border around the section header */
+    border-bottom: 1px solid #000; /* Add border around the section header */
+    width: 50px; /* Adjust the width to fit the text and border */
+    height: auto; /* Let the height be determined by content */
+    background-color: white; /* Match background color to IDENTITAS section */
+    box-sizing: border-box; /* Ensure padding and border are included in width and height */
+}
+
+.vertical-header {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 1px; /* Add padding inside the border to match IDENTITAS section */
+}
+
+.table-section {
+    flex-grow: 2;
+}
+
+.table-header-container {
+    display: flex;
+    justify-content: space-between;
+    border-left: 1px solid #000;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    padding: 5px 5px 5px 0; /* Adjust padding to match IDENTITAS table */
+}
+
+.table-header {
+    width: 50%;
+    text-align: center;
+    padding: 1px 1px;
+    border-right: 1px solid #000;
+}
+
+.table-header:last-child {
+    border-right: none;
+}
+
+.income-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0; /* Match the spacing of IDENTITAS table */
+}
+
+.income-table td {
+    padding: 6px;
+    vertical-align: top;
+}
+
+tbody {
+    border: 1px solid black;
+}
+
+
+.description {
+    width: 70%;
+}
+
+.explanation {
+    font-size: 10px;
+    color: #555;
+}
+
+.bg-orange {
+    background-color: #ffff99;
+    text-align: right;
+    padding-top: 50px;
+    border: 1px solid black;
+}
+.bg-white {
+    background-color: white;
+    text-align: right;
+    padding-top: 50px;
+    border: 1px solid black;
+}
+
+.bg-orange-special {
+    position: absolute;
+    border-left: 1px solid black;
+    background-color: #ffff99;
+    text-align: right;
+    padding-top: 50px;
+    width: 341px;
+}
+
+.amount-input {
+    margin: 0;
+    width: 95%;
+    padding: 6px;
+    background-color: #ffff99; /* Slightly lighter yellow to match the IDENTITAS table */
+    border: 0px solid #000;
+    text-align: right;
+}
+
+.radio-section {
+    display: inline-flex; /* Mengatur radio buttons dalam satu baris dengan teks */
+    gap: 10px; /* Menambahkan jarak antar label */
+    margin-left: 10px; /* Memberi jarak antara teks deskripsi dan radio buttons */
+    margin-right: 10px;
+    vertical-align: middle; /* Memastikan radio button dan teks berada di tengah secara vertikal */
+    border: 1px solid black;
+    padding: 3px;
+    padding-right: 3px;
+}
+
+.radio-section label {
+    display: inline-flex;
+    align-items: center;
+    padding-right: 5px;
+ /* Jarak antara radio button dan teks */
+}
+
+.total-row {
+    font-weight: bold;
+}
+
+.break-jarak {
+    padding-bottom: 50px;
+}
+
+.number-amount {
+    padding: 5px;
+    padding-top: 3px;
+    width: 4%;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.number-amount-special {
+    padding: 5px;
+    padding-top: 3px;
+    width: 4%;
+    text-align: center;
+}
+
+#hr-radio-a {
+    border: none;
+    border-top: 2px solid black;
+    width: 45%;
+    text-align: left;
+    display: inline-flex;
+    margin-left: 30px;
+}
+#hr-radio-b {
+    border: none;
+    border-top: 2px solid black;
+    width: 50%;
+    text-align: left;
+    display: inline-flex;
+    margin-left: 30px;
+}
+
+#radio {
+    margin-left: 30px;
+}
+
+.desc-ab {
+    margin-left: 50px;
+}
+
+#desc-b {
+    margin-left: 300px;
+}
+
+#just-space {
+    border: 0px solid black;
+}
+
+#space-ab {
+    position: absolute;
+    border: none;
+    border-bottom: 1px solid black; /* Garis hanya di bagian bawah */
+    margin: 0; /* Hilangkan margin */
+    width: 409px; /* Buat width 100% untuk mengisi seluruh td */
+    left: 1054px;
+    top: 1399px;
+}
+
+#tgl-lunas {
+    margin-left: 250px;
+}
+
+.garis-tgl-lunas {
+    position: absolute;
+    top: 23px;
+    left: 832px;
+}
+
+#box-tgl-lunas-horizontal {
+    position: absolute;
+    border-bottom: 1px solid black;
+    width: 720px;
+    margin-left: -90px;
+    top: 1485px;  
+}
+
+#box-tgl-lunas-vertical {
+    position: absolute;
+    border-left: 1px solid black;
+    height: 32px;
+    margin-left: 20px;
+    top: 1453px;
+}
+
+#data-tgl-lunas {
+    position: absolute;
+    margin-left: 90px;
+    top: 1460px;
+}
+
+#garis-satu {
+    position: absolute;
+    border-left: 1px solid black;
+    height: 32px;
+    margin-left: 221px;
+    top: 1453px;
+}
+
+.checkbox-dua-puluh {
+    position: absolute;
+    top: 1520px;
+    left: 690px;
+    gap: 30px;
+}
+
+.checkbox-dua-puluh table {
+    border: none;
+}
+
+.table-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Membuat 2 kolom dengan lebar yang sama */
+    gap: 6px; /* Jarak antar kolom */
+    width: 95%;
+}
+
+.table-row {
+    display: contents; /* Agar elemen .table-row tidak mempengaruhi layout grid */
+}
+
+.table-cell {
+    padding: 3px;
+    vertical-align: top;
+    border: none; /* Menghilangkan border */
+}
+
+
+.table-cell input {
+    margin-right: 2px; /* Memberikan jarak antara checkbox dan teks */
+}
+
+.no-border,
+.no-border tr,
+.no-border td {
+    border: none !important;
+}
+
+.no-border .table-cell {
+    border: none !important;
+}
+
+.checkbox-dua-puluh {
+    border: none !important;
+}
+
+.checkbox-dua-puluh td {
+    border: none !important;
+}
+
+#e20_checkbox_b {
+    color: #808080 !important;
+}
+
+.table-container,
+.table-container .table-cell {
+    color: black; /* Warna abu-abu */
+}
+
+.table-container .table-cell #e20_checkbox_b {
+    color: #808080 !important; /* Warna abu-abu */
+}
+
+.content-container {
+    
+    justify-content: space-between;
+    padding: 5px;
+    border: 1px solid black; /* Tambahkan border hitam */ /* Pastikan latar belakang putih */
+    box-sizing: border-box; /* Pastikan padding tidak menambah lebar elemen */
+    margin-bottom: 20px; /* Jarak bawah jika diperlukan */
+}
+
+#text-center {
+    text-align: center;
+}
+
+
+.content-left,
+.content-right {
+    width: 50%;
+}
+
+.content-left ul,
+.content-right ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.content-left li,
+.content-right li {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.checkbox-table {
+    width: 100%;
+}
+
+.checkbox-left,
+.checkbox-right {
+    width: 50%;
+    vertical-align: top;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px; /* Adjust spacing between rows */
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 10px;
+    width: 15px;
+    height: 15px;
+}
+
+.pernyataan {
+    flex: 1;
+    border: 1px solid #000;
+    text-align: center;
+    padding: 15px;
+    background-color: #C0C0C0;
+    font-weight: bold;
+}
+
+/* FORM-VIEW-LIMA */
+.halaman {
+    position: absolute;
+    top: -10px;
+    left: 100px;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+/* FORM-LIMA */
