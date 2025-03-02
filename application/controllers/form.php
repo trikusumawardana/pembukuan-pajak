@@ -122,12 +122,6 @@ class Form extends CI_Controller
         $this->load->view('form/form_view', $data);
     }
 
-    private function format_npwp($npwp)
-    {
-        $clean = preg_replace('/[^0-9]/', '', $npwp);
-        return preg_replace('/^(\d{2})(\d{3})(\d{3})(\d{1})(\d{3})(\d{3})$/', '$1.$2.$3.$4-$5.$6', $clean);
-    }
-
     public function update()
     {
         $npwp_session = $this->session->userdata('npwp');
@@ -235,30 +229,10 @@ class Form extends CI_Controller
         }
     }
 
-    public function update_f21()
+    private function format_npwp($npwp)
     {
-        // Ambil data dari request
-        $f21 = $this->input->post('f21');
-        $f21CheckboxA = $this->input->post('f21_checkbox_a');
-        $f21CheckboxB = $this->input->post('f21_checkbox_b');
-        $f21CheckboxC = $this->input->post('f21_checkbox_c');
-
-        // Ambil NPWP dari session
-        $npwp = $this->session->userdata('npwp');
-
-        // Update data ke database
-        $data = [
-            'f21' => $f21,
-            'f21_checkbox_a' => $f21CheckboxA,
-            'f21_checkbox_b' => $f21CheckboxB,
-            'f21_checkbox_c' => $f21CheckboxC
-        ];
-
-        $this->db->where('npwp_user', $npwp);
-        $this->db->update('form_index_b', $data);
-
-        // Berikan respons ke client
-        echo json_encode(['status' => 'success', 'message' => 'Data berhasil disimpan']);
+        $clean = preg_replace('/[^0-9]/', '', $npwp);
+        return preg_replace('/^(\d{2})(\d{3})(\d{3})(\d{1})(\d{3})(\d{3})$/', '$1.$2.$3.$4-$5.$6', $clean);
     }
 
     public function form_lima()
