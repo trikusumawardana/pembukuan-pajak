@@ -537,7 +537,7 @@
                 <p>SELAIN FORMULIR 1770 - I SAMPAI DENGAN 1770 - IV (BAIK YANG DIISI MAUPUN YANG TIDAK DIISI) HARUS DILAMPIRKAN PULA :</p>
                 <div class="checkbox-container">
                     <div class="checkbox-column">
-                        <label><input type="checkbox" id="g_checkbox_a"> SURAT KUASA KHUSUS (BILA DIKUASAKAN)</label>
+                        <label><input type="checkbox" id="g_checkbox_a" disabled> SURAT KUASA KHUSUS (BILA DIKUASAKAN)</label>
                         <label><input type="checkbox" id="g_checkbox_b"> SSP LEMBAR KE-3 PPh PASAL 29</label>
                         <label><input type="checkbox" id="g_checkbox_c"> NERACA DAN LAP. LABA RUGI / REKAPITULASI BULANAN PEREDARAN BRUTO DAN/ATAU PENGHASILAN LAIN DAN BIAYA</label>
                         <label><input type="checkbox" id="g_checkbox_d"> PERHITUNGAN KOMPENSASI KERUGIAN FISKAL</label>
@@ -880,7 +880,8 @@
             function handleF21CheckboxA() {
                 console.log("f21_checkbox_a changed:", f21CheckboxA.checked);
                 if (f21CheckboxA.checked) {
-                    updateF21Value();
+                    updateF21Value(); // Update nilai f21
+                    f21Input.setAttribute('readonly', true); // Set input f21 menjadi readonly
                     toggleCheckboxes(f21CheckboxA, [gCheckboxB, gCheckboxE, gCheckboxG, gCheckboxI, gCheckboxJ, gCheckboxK]);
                     f21CheckboxB.checked = false;
                     f21CheckboxC.checked = false;
@@ -888,6 +889,7 @@
                     f21CheckboxC.disabled = true;
                     console.log("Disabled f21_checkbox_b and f21_checkbox_c");
                 } else {
+                    f21Input.removeAttribute('readonly'); // Hapus readonly dari input f21
                     toggleCheckboxes(f21CheckboxA, [gCheckboxB, gCheckboxE, gCheckboxG, gCheckboxI, gCheckboxJ, gCheckboxK]);
                     f21CheckboxB.disabled = false;
                     f21CheckboxC.disabled = false;
