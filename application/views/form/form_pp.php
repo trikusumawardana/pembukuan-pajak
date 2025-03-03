@@ -61,7 +61,11 @@
         $totalPPh += $row['jumlah_pph'];
     }
     ?>
-
+    <?php if ($this->session->flashdata('error')): ?>
+        <div class="alert alert-danger">
+            <?= $this->session->flashdata('error') ?>
+        </div>
+    <?php endif; ?>
     <!-- TABLE A -->
     <div class="section-container-last">
         <table class="main-table">
@@ -78,9 +82,9 @@
                 <?php if (!empty($form_pp)): ?>
                     <?php foreach ($form_pp as $row): ?>
                         <tr>
-                            <td><?= $row['npwp'] ?></td>
+                            <td><?= formatNPWP($user['npwp']); ?></td>
                             <td><?= $row['masa_pajak'] ?></td>
-                            <td><?= $row['alamat'] ?></td>
+                            <td style="text-transform:uppercase;"><?= $row['alamat'] ?></td>
                             <td><?= number_format($row['perederan_bruto'], 0, ',', '.') ?></td>
                             <td><?= number_format($row['jumlah_pph'], 0, ',', '.') ?></td>
                         </tr>
@@ -150,7 +154,8 @@
 
                         <div class="form-group">
                             <label for="npwp">NPWP</label>
-                            <input type="text" class="form-control" id="npwp" name="npwp" required>
+                            <input type="text" class="form-control" id="npwp" name="npwp" required maxlength="15" minlength="15" oninput="formatNPWP(this)">
+
                         </div>
                         <div class="form-group">
                             <label for="masaPajak">Masa Pajak</label>
@@ -164,6 +169,33 @@
                                 <option value="Maret">
                                     Maret
                                 </option>
+                                <option value="April">
+                                    April
+                                </option>
+                                <option value="Mei">
+                                    Mei
+                                </option>
+                                <option value="Juni">
+                                    Juni
+                                </option>
+                                <option value="Juli">
+                                    Juli
+                                </option>
+                                <option value="Agustus">
+                                    Agustus
+                                </option>
+                                <option value="September">
+                                    September
+                                </option>
+                                <option value="Oktober">
+                                    Oktober
+                                </option>
+                                <option value="November">
+                                    November
+                                </option>
+                                <option value="Desember">
+                                    Desember
+                                </option>
                             </select>
                         </div>
 
@@ -173,11 +205,11 @@
                         </div>
                         <div class="form-group">
                             <label for="perederanBruto">Perederan Bruto</label>
-                            <input type="number" class="form-control" id="perederanBruto" name="perederan_bruto" required>
+                            <input type="number" class="form-control" id="perederanBruto" name="perederan_bruto" required oninput="hitungJumlahPPh()">
                         </div>
                         <div class="form-group">
                             <label for="jumlahPPh">Jumlah PPh</label>
-                            <input type="number" class="form-control" id="jumlahPPh" name="jumlah_pph" required>
+                            <input type="number" class="form-control" id="jumlahPPh" name="jumlah_pph" readonly>
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
@@ -191,6 +223,32 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
+        function formatNPWP(input) {
+            // Hapus semua karakter non-angka
+            let value = input.value.replace(/\D/g, '');
+            // Batasi panjang input menjadi 15 karakter
+            value = value.substring(0, 15);
+            // Format NPWP dengan simbol
+            if (value.length > 0) {
+                value = value.replace(/(\d{2})(\d{3})(\d{3})(\d{1})(\d{3})(\d{3})/, '$1.$2.$3.$4-$5.$6');
+            }
+            input.value = value;
+        }
+
+        // Fungsi untuk menghitung Jumlah PPh
+        function hitungJumlahPPh() {
+            const perederanBruto = document.getElementById('perederanBruto').value;
+            const jumlahPPh = document.getElementById('jumlahPPh');
+
+            if (perederanBruto) {
+                // Hitung Jumlah PPh berdasarkan rumus: Perederan Bruto / 200
+                const hasil = perederanBruto / 200;
+                jumlahPPh.value = hasil.toFixed(0); // Format 2 digit di belakang koma
+            } else {
+                jumlahPPh.value = ''; // Kosongkan jika Perederan Bruto kosong
+            }
+        }
+
         function deleteRowA() {
             const dataKeA = document.getElementById("data-ke-a").value;
 
@@ -220,6 +278,30 @@
                 alert("Masukkan nomor data yang valid.");
             }
         }
+
+        function validateForm() {
+            const npwpInput = document.getElementById('npwp').value.replace(/\D/g, ''); // Hapus simbol non-angka
+            const npwpSession = "<?= $this->session->userdata('npwp') ?>"; // Ambil NPWP dari session
+
+            if (npwpInput.length !== 15) {
+                alert('NPWP harus 15 digit.');
+                return false; // Hentikan pengiriman form
+            }
+
+            if (npwpInput !== npwpSession) {
+                alert('NPWP yang diinput harus sama dengan NPWP Anda.');
+                return false; // Hentikan pengiriman form
+            }
+
+            return true; // Lanjutkan pengiriman form
+        }
+
+        // Tambahkan event listener ke form
+        document.getElementById('addDataForm').addEventListener('submit', function(event) {
+            if (!validateForm()) {
+                event.preventDefault(); // Hentikan pengiriman form jika validasi gagal
+            }
+        });
     </script>
 
 </body>

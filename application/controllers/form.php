@@ -845,18 +845,52 @@ class Form extends CI_Controller
 
     public function form_pp_save_a()
     {
+        $npwp_session = $this->session->userdata('npwp');
+        if (!$npwp_session) {
+            redirect('auth'); // Redirect ke halaman login jika session tidak ada
+        }
 
+        // Ambil data dari form
+        $npwp_input = $this->input->post('npwp');
+        $masa_pajak = $this->input->post('masa_pajak');
+        $alamat = $this->input->post('alamat');
+        $perederan_bruto = $this->input->post('perederan_bruto');
+        $jumlah_pph = $this->input->post('jumlah_pph');
+
+        // Bersihkan input NPWP dari simbol non-angka
+        $npwp_input = preg_replace('/[^0-9]/', '', $npwp_input);
+
+        // Validasi panjang NPWP
+        if (strlen($npwp_input) !== 15) {
+            $this->session->set_flashdata('error', 'NPWP harus 15 digit.');
+            redirect('form/form_pp'); // Kembali ke halaman form
+        }
+
+        // Validasi apakah NPWP input sama dengan NPWP user login
+        if ($npwp_input !== $npwp_session) {
+            $this->session->set_flashdata('error', 'NPWP yang diinput harus sama dengan NPWP Anda.');
+            redirect('form/form_pp'); // Kembali ke halaman form
+        }
+
+        // Simpan data ke database
         $data = [
-            'npwp' => $this->input->post('npwp'),
-            'masa_pajak' => $this->input->post('masa_pajak'),
-            'alamat' => $this->input->post('alamat'),
-            'perederan_bruto' => $this->input->post('perederan_bruto'),
-            'jumlah_pph' => $this->input->post('jumlah_pph'),
-            'npwp_user' => $this->session->userdata('npwp')
+            'npwp' => $npwp_input,
+            'masa_pajak' => $masa_pajak,
+            'alamat' => $alamat,
+            'perederan_bruto' => $perederan_bruto,
+            'jumlah_pph' => $jumlah_pph,
+            'npwp_user' => $npwp_session
         ];
 
-        $this->db->insert('form-pp', $data);
-        redirect('form/form_pp');
+        // Insert data ke database
+        $insert = $this->db->insert('form-pp', $data);
+        if ($insert) {
+            $this->session->set_flashdata('success', 'Data berhasil disimpan.');
+        } else {
+            $this->session->set_flashdata('error', 'Gagal menyimpan data. Silakan coba lagi.');
+        }
+
+        redirect('form/form_pp'); // Kembali ke halaman form
     }
 
     public function form_tiga_save()
