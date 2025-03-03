@@ -122,20 +122,19 @@
                         <div class="form-group row align-items-center table">
                             <label class="col-sm-6 col-form-label">PINDAHKAN NILAI KE LAMPIRAN III ?</label>
                             <div class="col-sm-3">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="lampiran" id="ya" value="ya">
-                                    <label class="form-check-label" for="ya">Ya</label>
+                                <div>
+                                    <input type="radio" name="lampiran" id="ya" value="ya" <?= ($kirim == 'ya') ? 'checked' : '' ?>>
+                                    <label for="ya">Ya</label>
                                 </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="lampiran" id="tidak" value="tidak" checked>
-                                    <label class="form-check-label" for="tidak">Tidak</label>
+                                <div>
+                                    <input type="radio" name="lampiran" id="tidak" value="tidak" <?= ($kirim == 'tidak') ? 'checked' : '' ?>>
+                                    <label for="tidak">Tidak</label>
                                 </div>
                             </div>
                         </div>
                     </form>
                 </table>
             </div>
-
         </div>
     </div>
 
@@ -221,6 +220,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
         function formatNPWP(input) {
@@ -248,6 +248,30 @@
                 jumlahPPh.value = ''; // Kosongkan jika Perederan Bruto kosong
             }
         }
+
+        $(document).ready(function() {
+            $('input[name="lampiran"]').change(function() {
+                let selectedValue = $('input[name="lampiran"]:checked').val();
+                $.ajax({
+                    url: "<?= base_url('form/save_radio') ?>",
+                    method: "POST",
+                    data: {
+                        kirim: selectedValue
+                    },
+                    success: function(response) {
+                        let res = JSON.parse(response);
+                        if (res.status === 'success') {
+                            console.log("Data berhasil disimpan");
+                        } else {
+                            alert("Terjadi kesalahan saat menyimpan");
+                        }
+                    },
+                    error: function() {
+                        alert("Gagal menghubungkan ke server");
+                    }
+                });
+            });
+        });
 
         function deleteRowA() {
             const dataKeA = document.getElementById("data-ke-a").value;

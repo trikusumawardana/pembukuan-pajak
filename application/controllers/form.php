@@ -639,6 +639,10 @@ class Form extends CI_Controller
 
         $data['user'] = $this->db->get_where('user', ['npwp' => $npwp])->row_array();
 
+        // Ambil nilai radio button yang tersimpan di database
+        $result = $this->db->get_where('form-pp-kirim', ['npwp_user' => $npwp])->row_array();
+        $data['kirim'] = $result ? $result['kirim'] : 'tidak';
+
         // Pagination setup A
         $this->load->library('pagination');
         $config['base_url'] = base_url('form/form_pp');
@@ -686,6 +690,33 @@ class Form extends CI_Controller
         $data['pagination'] = $this->pagination->create_links();
 
         $this->load->view('form/form_pp', $data);
+    }
+
+    public function save_radio()
+    {
+        $npwp = $this->session->userdata('npwp');
+        if (!$npwp) {
+            echo json_encode(['status' => 'error', 'message' => 'Unauthorized']);
+            return;
+        }
+
+        $kirim = $this->input->post('kirim');
+
+        $data = [
+            'npwp_user' => $npwp,
+            'kirim' => $kirim
+        ];
+
+        // Periksa apakah data sudah ada, update jika ada, insert jika belum
+        $exists = $this->db->get_where('form-pp-kirim', ['npwp_user' => $npwp])->row_array();
+        if ($exists) {
+            $this->db->where('npwp_user', $npwp);
+            $this->db->update('form-pp-kirim', $data);
+        } else {
+            $this->db->insert('form-pp-kirim', $data);
+        }
+
+        echo json_encode(['status' => 'success']);
     }
 
     public function form_satu()
