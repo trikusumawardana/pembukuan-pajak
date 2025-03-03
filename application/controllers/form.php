@@ -141,13 +141,34 @@ class Form extends CI_Controller
         // Bersihkan nilai b10 dari simbol non-numerik
         $postData['b10'] = preg_replace('/[^0-9]/', '', $postData['b10'] ?? '');
 
-        // Atur nilai e20_checkbox
-        $e20Checkboxes = ['e20_checkbox_a', 'e20_checkbox_b', 'e20_checkbox_c', 'e20_checkbox_d'];
-        foreach ($e20Checkboxes as $checkbox) {
+        // Atur nilai checkbox yang tidak dicentang menjadi 0
+        $checkboxes = [
+            'c12_checkbox',
+            'e20_checkbox_a',
+            'e20_checkbox_b',
+            'e20_checkbox_c',
+            'e20_checkbox_d',
+            'f21_checkbox_a',
+            'f21_checkbox_b',
+            'f21_checkbox_c',
+            'g_checkbox_a',
+            'g_checkbox_b',
+            'g_checkbox_c',
+            'g_checkbox_d',
+            'g_checkbox_e',
+            'g_checkbox_f',
+            'g_checkbox_g',
+            'g_checkbox_h',
+            'g_checkbox_i',
+            'g_checkbox_j',
+            'g_checkbox_k',
+            'g_checkbox_l'
+        ];
+
+        foreach ($checkboxes as $checkbox) {
             $postData[$checkbox] = isset($postData[$checkbox]) ? 1 : 0;
         }
 
-        // Hapus field 'action' dari data yang akan diupdate
         unset($postData['action']);
 
         // Data untuk form_index_a
