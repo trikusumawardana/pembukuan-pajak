@@ -311,11 +311,11 @@
                 <table class="income-table">
                     <tbody>
                         <tr>
-                            <td class="description">12. PPh TERUTANG (TARIF PASAL 17 UU PPh X ANGKA 11) <input id="c12_checkbox" name="c12_checkbox" type="checkbox" <?= $form_index_b['c12_checkbox'] === 'on' ? 'checked' : '' ?>> Menggunakan Perhitungan Sendiri</td>
+                            <td class="description">12. PPh TERUTANG (TARIF PASAL 17 UU PPh X ANGKA 11) <input id="c12_checkbox" name="c12_checkbox" type="checkbox" <?= $form_index_b['c12_checkbox'] === '1' ? 'checked' : '' ?>> Menggunakan Perhitungan Sendiri</td>
                             <td class="number-amount">
                                 12
                             </td>
-                            <td id="c12" class="bg-orange"> <input type="text" id="c12_input" name="c12" value="<?= $form_index_b['c12_checkbox'] === 'on' ? $form_index_b['c12'] : 0 ?>" <?= $form_index_b['c12_checkbox'] !== 'on' ? 'readonly' : '' ?>></td>
+                            <td id="c12" class="bg-orange"> <input type="text" id="c12_input" name="c12" value="<?= $form_index_b['c12_checkbox'] === '1' ? $form_index_b['c12'] : 0 ?>" <?= $form_index_b['c12_checkbox'] !== '1' ? 'readonly' : '' ?>></td>
                         </tr>
                         <tr>
                             <td class="description">13. PENGEMBALIAN/PENGURANGAN PPh PASAL 24 YANG TELAH DIKREDITKAN</td>
@@ -509,19 +509,19 @@
                                 21
                             </td>
                             <td class="bg-white" id="f21">
-                                <input type="text" name="f21" value="0">
+                                <input type="text" name="f21" value="<?= $form_index_b['f21'] ?? 0 ?>">
                             </td>
                         </tr>
                         <tr>
                             <td class="description">
                                 <span class="checkbox-label">
-                                    <input type="checkbox" name="f21_checkbox_a" id="f21_checkbox_a">a. 1/12 X JUMLAH PADA ANGKA 16
+                                    <input type="checkbox" name="f21_checkbox_a" id="f21_checkbox_a" <?= $form_index_b['f21_checkbox_a'] ? 'checked' : '' ?>>a. 1/12 X JUMLAH PADA ANGKA 16
                                 </span>
                                 <span class="checkbox-label">
-                                    <input type="checkbox" name="f21_checkbox_b" id="f21_checkbox_b">b. PERHITUNGAN WAJIB PAJAK ORANG PRIBADI PENGUSAHA TERTENTU
+                                    <input type="checkbox" name="f21_checkbox_b" id="f21_checkbox_b" <?= $form_index_b['f21_checkbox_b'] ? 'checked' : '' ?>>b. PERHITUNGAN WAJIB PAJAK ORANG PRIBADI PENGUSAHA TERTENTU
                                 </span>
                                 <span class="checkbox-label">
-                                    <input type="checkbox" name="f21_checkbox_c" id="f21_checkbox_c">c. PERHITUNGAN DALAM LAMPIRAN TERSENDIRI
+                                    <input type="checkbox" name="f21_checkbox_c" id="f21_checkbox_c" <?= $form_index_b['f21_checkbox_c'] ? 'checked' : '' ?>>c. PERHITUNGAN DALAM LAMPIRAN TERSENDIRI
                                 </span> <br> <br> <br>
                             </td>
                         </tr>
@@ -537,21 +537,21 @@
                 <p>SELAIN FORMULIR 1770 - I SAMPAI DENGAN 1770 - IV (BAIK YANG DIISI MAUPUN YANG TIDAK DIISI) HARUS DILAMPIRKAN PULA :</p>
                 <div class="checkbox-container">
                     <div class="checkbox-column">
-                        <label><input type="checkbox" id="g_checkbox_a" disabled> SURAT KUASA KHUSUS (BILA DIKUASAKAN)</label>
-                        <label><input type="checkbox" id="g_checkbox_b"> SSP LEMBAR KE-3 PPh PASAL 29</label>
-                        <label><input type="checkbox" id="g_checkbox_c"> NERACA DAN LAP. LABA RUGI / REKAPITULASI BULANAN PEREDARAN BRUTO DAN/ATAU PENGHASILAN LAIN DAN BIAYA</label>
-                        <label><input type="checkbox" id="g_checkbox_d"> PERHITUNGAN KOMPENSASI KERUGIAN FISKAL</label>
-                        <label><input type="checkbox" id="g_checkbox_e"> BUKTI PEMOTONGAN/PEMUNGUTAN OLEH PIHAK LAIN/DITANGGUNG PEMERINTAH DAN YANG DIBAYAR/DIPOTONG DI LUAR NEGERI</label>
-                        <label><input type="checkbox" id="g_checkbox_f"> FOTOKOPI FORMULIR 1721-A1 DAN/ATAU 1721-A2 LEMBAR</label>
+                        <label><input type="checkbox" id="g_checkbox_a" name="g_checkbox_a" <?= $form_index_b['g_checkbox_a'] ? 'checked' : '' ?>> SURAT KUASA KHUSUS (BILA DIKUASAKAN)</label>
+                        <label><input type="checkbox" id="g_checkbox_b" name="g_checkbox_b" <?= $form_index_b['g_checkbox_b'] ? 'checked' : '' ?>> SSP LEMBAR KE-3 PPh PASAL 29</label>
+                        <label><input type="checkbox" id="g_checkbox_c" name="g_checkbox_c" <?= $form_index_b['g_checkbox_c'] ? 'checked' : '' ?>> NERACA DAN LAP. LABA RUGI / REKAPITULASI BULANAN PEREDARAN BRUTO DAN/ATAU PENGHASILAN LAIN DAN BIAYA</label>
+                        <label><input type="checkbox" id="g_checkbox_d" name="g_checkbox_d" <?= $form_index_b['g_checkbox_d'] ? 'checked' : '' ?>> PERHITUNGAN KOMPENSASI KERUGIAN FISKAL</label>
+                        <label><input type="checkbox" id="g_checkbox_e" name="g_checkbox_e" <?= $form_index_b['g_checkbox_e'] ? 'checked' : '' ?>> BUKTI PEMOTONGAN/PEMUNGUTAN OLEH PIHAK LAIN/DITANGGUNG PEMERINTAH DAN YANG DIBAYAR/DIPOTONG DI LUAR NEGERI</label>
+                        <label><input type="checkbox" id="g_checkbox_f" name="g_checkbox_f" <?= $form_index_b['g_checkbox_f'] ? 'checked' : '' ?>> FOTOKOPI FORMULIR 1721-A1 DAN/ATAU 1721-A2 LEMBAR</label>
                     </div>
 
                     <div class="checkbox-column">
-                        <label><input type="checkbox" id="g_checkbox_g"> PERHITUNGAN ANGSURAN PPh PASAL 25 TAHUN PAJAK BERIKUTNYA</label>
-                        <label><input type="checkbox" id="g_checkbox_h"><input type="text"></label>
-                        <label><input type="checkbox" id="g_checkbox_i"> PERHITUNGAN PPh TERUTANG BAGI WAJIB PAJAK DENGAN STATUS PERPAJAKAN PH ATAU MT</label>
-                        <label><input type="checkbox" id="g_checkbox_j"> DAFTAR JUMLAH MENGHASILAN DAN PEMBAYARAN PPh PASAL 25 (KHUSUS UNTUK ORANG PRIBADI PENGUSAHA TERTENTU)</label>
-                        <label><input type="checkbox" id="g_checkbox_k"> DAFTAR JUMLAH PEREDERAN BRUTO DAN PEMBAYARAN PPh FINAL BERDASARKAN PPh 46 TAHUN 2013 PER MASA PAJAK DAN PER TEMPAT USAHA</label>
-                        <label><input type="checkbox" id="g_checkbox_l"><input type="text"></label>
+                        <label><input type="checkbox" id="g_checkbox_g" name="g_checkbox_g" <?= $form_index_b['g_checkbox_g'] ? 'checked' : '' ?>> PERHITUNGAN ANGSURAN PPh PASAL 25 TAHUN PAJAK BERIKUTNYA</label>
+                        <label><input type="checkbox" id="g_checkbox_h" name="g_checkbox_h" <?= $form_index_b['g_checkbox_h'] ? 'checked' : '' ?>><input type="text"></label>
+                        <label><input type="checkbox" id="g_checkbox_i" name="g_checkbox_i" <?= $form_index_b['g_checkbox_i'] ? 'checked' : '' ?>> PERHITUNGAN PPh TERUTANG BAGI WAJIB PAJAK DENGAN STATUS PERPAJAKAN PH ATAU MT</label>
+                        <label><input type="checkbox" id="g_checkbox_j" name="g_checkbox_j" <?= $form_index_b['g_checkbox_j'] ? 'checked' : '' ?>> DAFTAR JUMLAH MENGHASILAN DAN PEMBAYARAN PPh PASAL 25 (KHUSUS UNTUK ORANG PRIBADI PENGUSAHA TERTENTU)</label>
+                        <label><input type="checkbox" id="g_checkbox_k" name="g_checkbox_k" <?= $form_index_b['g_checkbox_k'] ? 'checked' : '' ?>> DAFTAR JUMLAH PEREDERAN BRUTO DAN PEMBAYARAN PPh FINAL BERDASARKAN PPh 46 TAHUN 2013 PER MASA PAJAK DAN PER TEMPAT USAHA</label>
+                        <label><input type="checkbox" id="g_checkbox_l" name="g_checkbox_l" <?= $form_index_b['g_checkbox_l'] ? 'checked' : '' ?>><input type="text"></label>
                     </div>
                 </div>
             </div>
@@ -596,30 +596,31 @@
     <!-- END TABLE CONTENT -->
 
     <script>
-        document.getElementById('npwp').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length > 15) value = value.substr(0, 15);
-
-            let formatted = '';
-            if (value.length > 0) formatted += value.substr(0, 2);
-            if (value.length > 2) formatted += '.' + value.substr(2, 3);
-            if (value.length > 5) formatted += '.' + value.substr(5, 3);
-            if (value.length > 8) formatted += '.' + value.substr(8, 1);
-            if (value.length > 9) formatted += '-' + value.substr(9, 3);
-            if (value.length > 12) formatted += '.' + value.substr(12, 3);
-
-            e.target.value = formatted;
-        });
-
         document.addEventListener('DOMContentLoaded', function() {
-            // Ambil semua radio button status
+            console.log("DOM fully loaded and parsed");
+
+            // Format NPWP
+            document.getElementById('npwp').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 15) value = value.substr(0, 15);
+
+                let formatted = '';
+                if (value.length > 0) formatted += value.substr(0, 2);
+                if (value.length > 2) formatted += '.' + value.substr(2, 3);
+                if (value.length > 5) formatted += '.' + value.substr(5, 3);
+                if (value.length > 8) formatted += '.' + value.substr(8, 1);
+                if (value.length > 9) formatted += '-' + value.substr(9, 3);
+                if (value.length > 12) formatted += '.' + value.substr(12, 3);
+
+                e.target.value = formatted;
+            });
+
+            // Toggle NPWP Suami/Istri
             const statusRadios = document.querySelectorAll('input[name="status_kewajiban_perpajakan"]');
-            // Ambil input NPWP Suami/Istri
             const npwpSuamiIstriInput = document.querySelector('input[name="npwp_suami_istri"]');
 
-            // Fungsi untuk menonaktifkan/mengaktifkan input
             function toggleNPWPSuamiIstri() {
-                const selectedStatus = document.querySelector('input[name="status_kewajiban_perpajakan"]:checked').value;
+                const selectedStatus = document.querySelector('input[name="status_kewajiban_perpajakan"]:checked')?.value;
                 if (selectedStatus === 'KK' || selectedStatus === 'HB') {
                     npwpSuamiIstriInput.disabled = true; // Nonaktifkan input
                     npwpSuamiIstriInput.value = ''; // Kosongkan nilai
@@ -628,190 +629,180 @@
                 }
             }
 
-            // Jalankan fungsi saat halaman dimuat
-            toggleNPWPSuamiIstri();
-
-            // Tambahkan event listener untuk setiap radio button
+            toggleNPWPSuamiIstri(); // Jalankan saat halaman dimuat
             statusRadios.forEach(radio => {
                 radio.addEventListener('change', toggleNPWPSuamiIstri);
             });
-        });
 
-        // Fungsi untuk menghitung nilai a5 dan a7
-        function calculateValues() {
-            // Ambil nilai dari input a1, a2, a3, a4, dan a6
-            const a1 = parseFloat(document.querySelector('input[name="a1"]').value) || 0;
-            const a2 = parseFloat(document.querySelector('input[name="a2"]').value) || 0;
-            const a3 = parseFloat(document.querySelector('input[name="a3"]').value) || 0;
-            const a4 = parseFloat(document.querySelector('input[name="a4"]').value) || 0;
-            const a6 = parseFloat(document.querySelector('input[name="a6"]').value) || 0;
-            const b8 = parseFloat(document.querySelector('input[name="b8"]').value) || 0;
-            const b10 = parseFloat(document.querySelector('input[name="b10"]').value) || 0;
-            const c12 = parseFloat(document.querySelector('input[name="c12"]').value) || 0;
-            const c13 = parseFloat(document.querySelector('input[name="c13"]').value) || 0;
-            const d15 = parseFloat(document.querySelector('input[name="d15"]').value) || 0;
+            // Fungsi untuk menghitung nilai a5 dan a7
+            function calculateValues() {
+                const a1 = parseFloat(document.querySelector('input[name="a1"]').value) || 0;
+                const a2 = parseFloat(document.querySelector('input[name="a2"]').value) || 0;
+                const a3 = parseFloat(document.querySelector('input[name="a3"]').value) || 0;
+                const a4 = parseFloat(document.querySelector('input[name="a4"]').value) || 0;
+                const a6 = parseFloat(document.querySelector('input[name="a6"]').value) || 0;
+                const b8 = parseFloat(document.querySelector('input[name="b8"]').value) || 0;
+                const b10 = parseFloat(document.querySelector('input[name="b10"]').value) || 0;
+                const c12 = parseFloat(document.querySelector('input[name="c12"]').value) || 0;
+                const c13 = parseFloat(document.querySelector('input[name="c13"]').value) || 0;
+                const d15 = parseFloat(document.querySelector('input[name="d15"]').value) || 0;
+                const d17_a = parseFloat(document.querySelector('input[name="d17_a"]').value) || 0;
+                const d17_b = parseFloat(document.querySelector('input[name="d17_b"]').value) || 0;
 
-            const d17_a = parseFloat(document.querySelector('input[name="d17_a"]').value) || 0;
-            const d17_b = parseFloat(document.querySelector('input[name="d17_b"]').value) || 0;
+                // Hitung nilai a5
+                const a5 = a1 + a2 + a3 + a4;
+                document.querySelector('input[name="a5"]').value = a5;
 
-            // Hitung nilai a5
-            const a5 = a1 + a2 + a3 + a4;
-            document.querySelector('input[name="a5"]').value = a5;
+                // Hitung nilai a7
+                const a7 = a5 - a6;
+                document.querySelector('input[name="a7"]').value = a7;
 
-            // Hitung nilai a7
-            const a7 = a5 - a6;
-            document.querySelector('input[name="a7"]').value = a7;
+                // Hitung nilai b9
+                const b9 = a7 - b8;
+                document.querySelector('input[name="b9"]').value = b9;
 
-            // Hitung nilai a9
-            const b9 = a7 - b8;
-            document.querySelector('input[name="b9"]').value = b9;
+                // Hitung nilai c14
+                const c14 = c12 + c13;
+                document.querySelector('input[name="c14"]').value = c14;
 
-            // Hitung nilai c14
-            const c14 = c12 + c13;
-            document.querySelector('input[name="c14"]').value = c14;
+                // Hitung nilai d18
+                const d18 = d17_a + d17_b;
+                document.querySelector('input[name="d18"]').value = d18;
 
-            // Hitung nilai d18
-            const d18 = d17_a + d17_b;
-            document.querySelector('input[name="d18"]').value = d18;
+                // Hitung nilai d16
+                const d16 = d15 - c14;
+                document.querySelector('input[name="d16"]').value = d16;
 
-            // Hitung nilai d16
-            const d16 = d15 - c14;
-            document.querySelector('input[name="d16"]').value = d16;
+                // Hitung nilai e19
+                const e19 = d16 + d18;
+                document.querySelector('input[name="e19"]').value = e19;
+            }
 
-            // Hitung nilai e19
-            const e19 = d16 + d18;
-            document.querySelector('input[name="e19"]').value = e19;
-        }
+            // Tambahkan event listener untuk input a4 dan a6
+            document.querySelector('input[name="a4"]').addEventListener('input', calculateValues);
+            document.querySelector('input[name="a6"]').addEventListener('input', calculateValues);
+            document.querySelector('input[name="b8"]').addEventListener('input', calculateValues);
+            document.querySelector('input[name="c12"]').addEventListener('input', calculateValues);
+            document.querySelector('input[name="c13"]').addEventListener('input', calculateValues);
 
-        // Tambahkan event listener untuk input a4 dan a6
-        document.querySelector('input[name="a4"]').addEventListener('input', calculateValues);
-        document.querySelector('input[name="a6"]').addEventListener('input', calculateValues);
-        document.querySelector('input[name="b8"]').addEventListener('input', calculateValues);
-        document.querySelector('input[name="c12"]').addEventListener('input', calculateValues);
-        document.querySelector('input[name="c13"]').addEventListener('input', calculateValues);
+            // Jalankan fungsi calculateValues saat halaman dimuat
+            calculateValues();
 
-        // Jalankan fungsi calculateValues saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', calculateValues);
+            // Fungsi untuk menghitung nilai b10 berdasarkan pilihan b10_radio dan b11_option
+            function calculateB10() {
+                const b10Radio = document.querySelector('input[name="b10_radio"]:checked')?.value;
+                const b11Option = document.getElementById('b11_option').value;
 
-        // Fungsi untuk menghitung nilai b10 berdasarkan pilihan b10_radio dan b11_option
-        function calculateB10() {
-            // Ambil nilai dari b10_radio dan b11_option
-            const b10Radio = document.querySelector('input[name="b10_radio"]:checked')?.value;
-            const b11Option = document.getElementById('b11_option').value;
-
-            // Definisikan nilai b10 berdasarkan logika yang diberikan
-            let b10Value = 0;
-            if (b10Radio === 'TK') {
-                switch (b11Option) {
-                    case '0':
-                        b10Value = 54000000;
-                        break;
-                    case '1':
-                        b10Value = 58500000;
-                        break;
-                    case '2':
-                        b10Value = 63000000;
-                        break;
-                    case '3':
-                        b10Value = 67500000;
-                        break;
+                let b10Value = 0;
+                if (b10Radio === 'TK') {
+                    switch (b11Option) {
+                        case '0':
+                            b10Value = 54000000;
+                            break;
+                        case '1':
+                            b10Value = 58500000;
+                            break;
+                        case '2':
+                            b10Value = 63000000;
+                            break;
+                        case '3':
+                            b10Value = 67500000;
+                            break;
+                    }
+                } else if (b10Radio === 'K') {
+                    switch (b11Option) {
+                        case '0':
+                            b10Value = 58500000;
+                            break;
+                        case '1':
+                            b10Value = 63000000;
+                            break;
+                        case '2':
+                            b10Value = 67500000;
+                            break;
+                        case '3':
+                            b10Value = 72000000;
+                            break;
+                    }
+                } else if (b10Radio === 'KI') {
+                    switch (b11Option) {
+                        case '0':
+                            b10Value = 112500000;
+                            break;
+                        case '1':
+                            b10Value = 117000000;
+                            break;
+                        case '2':
+                            b10Value = 121500000;
+                            break;
+                        case '3':
+                            b10Value = 126000000;
+                            break;
+                    }
                 }
-            } else if (b10Radio === 'K') {
-                switch (b11Option) {
-                    case '0':
-                        b10Value = 58500000;
-                        break;
-                    case '1':
-                        b10Value = 63000000;
-                        break;
-                    case '2':
-                        b10Value = 67500000;
-                        break;
-                    case '3':
-                        b10Value = 72000000;
-                        break;
+
+                // Format nilai b10 dengan pemisah ribuan
+                const formattedB10 = b10Value.toLocaleString('id-ID');
+                document.querySelector('input[name="b10"]').value = formattedB10;
+
+                // Hitung ulang nilai b11 (Penghasilan Kena Pajak)
+                calculateB11();
+            }
+
+            // Fungsi untuk menghitung nilai b11 (Penghasilan Kena Pajak)
+            function calculateB11() {
+                const b9 = parseFloat(document.querySelector('input[name="b9"]').value.replace(/\./g, '')) || 0;
+                const b10 = parseFloat(document.querySelector('input[name="b10"]').value.replace(/\./g, '')) || 0;
+
+                let b11Value = b9 - b10;
+
+                // Jika nilai b11 kurang dari 0, set menjadi 0
+                if (b11Value < 0) {
+                    b11Value = 0;
                 }
-            } else if (b10Radio === 'KI') {
-                switch (b11Option) {
-                    case '0':
-                        b10Value = 112500000;
-                        break;
-                    case '1':
-                        b10Value = 117000000;
-                        break;
-                    case '2':
-                        b10Value = 121500000;
-                        break;
-                    case '3':
-                        b10Value = 126000000;
-                        break;
+
+                // Format nilai b11 dengan pemisah ribuan
+                document.querySelector('input[name="b11"]').value = b11Value.toLocaleString('id-ID');
+            }
+
+            // Tambahkan event listener untuk b10_radio dan b11_option
+            document.querySelectorAll('input[name="b10_radio"]').forEach(radio => {
+                radio.addEventListener('change', calculateB10);
+            });
+
+            document.getElementById('b11_option').addEventListener('change', calculateB10);
+
+            // Jalankan fungsi calculateB10 saat halaman dimuat
+            calculateB10();
+
+            // Hapus format angka sebelum form disubmit
+            document.getElementById('form-identitas').addEventListener('submit', function(e) {
+                const b10Input = document.querySelector('input[name="b10"]');
+                b10Input.value = b10Input.value.replace(/\./g, '');
+            });
+
+            // Fungsi untuk mengatur readonly dan nilai c12
+            function toggleC12Input() {
+                const c12Checkbox = document.getElementById('c12_checkbox');
+                const c12Input = document.getElementById('c12_input');
+
+                if (c12Checkbox.checked) {
+                    c12Input.removeAttribute('readonly'); // Enable input if checkbox is checked
+                } else {
+                    c12Input.setAttribute('readonly', true); // Disable input if checkbox is unchecked
+                    c12Input.value = 0; // Reset value to 0
                 }
             }
 
-            // Format nilai b10 dengan pemisah ribuan
-            const formattedB10 = b10Value.toLocaleString('id-ID');
-            document.querySelector('input[name="b10"]').value = formattedB10;
+            // Tambahkan event listener untuk checkbox c12_checkbox
+            document.getElementById('c12_checkbox').addEventListener('change', toggleC12Input);
 
-            // Hitung ulang nilai b11 (Penghasilan Kena Pajak)
-            calculateB11();
-        }
+            // Jalankan fungsi saat halaman dimuat untuk mengatur status awal
+            toggleC12Input();
 
-        // Fungsi untuk menghitung nilai b11 (Penghasilan Kena Pajak)
-        function calculateB11() {
-            const b9 = parseFloat(document.querySelector('input[name="b9"]').value.replace(/\./g, '')) || 0;
-            const b10 = parseFloat(document.querySelector('input[name="b10"]').value.replace(/\./g, '')) || 0;
-
-            let b11Value = b9 - b10;
-
-            // Jika nilai b11 kurang dari 0, set menjadi 0
-            if (b11Value < 0) {
-                b11Value = 0;
-            }
-
-            // Format nilai b11 dengan pemisah ribuan
-            document.querySelector('input[name="b11"]').value = b11Value.toLocaleString('id-ID');
-        }
-
-        // Tambahkan event listener untuk b10_radio dan b11_option
-        document.querySelectorAll('input[name="b10_radio"]').forEach(radio => {
-            radio.addEventListener('change', calculateB10);
-        });
-
-        document.getElementById('b11_option').addEventListener('change', calculateB10);
-
-        // Jalankan fungsi calculateB10 saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', calculateB10);
-
-        // Hapus format angka sebelum form disubmit
-        document.getElementById('form-identitas').addEventListener('submit', function(e) {
-            const b10Input = document.querySelector('input[name="b10"]');
-            b10Input.value = b10Input.value.replace(/\./g, '');
-        });
-
-        // Fungsi untuk mengatur readonly dan nilai c12
-        function toggleC12Input() {
-            const c12Checkbox = document.getElementById('c12_checkbox');
-            const c12Input = document.getElementById('c12_input');
-
-            if (c12Checkbox.checked) {
-                c12Input.removeAttribute('readonly'); // Enable input if checkbox is checked
-            } else {
-                c12Input.setAttribute('readonly', true); // Disable input if checkbox is unchecked
-                c12Input.value = 0; // Reset value to 0
-            }
-        }
-
-        // Tambahkan event listener untuk checkbox c12_checkbox
-        document.getElementById('c12_checkbox').addEventListener('change', toggleC12Input);
-
-        // Jalankan fungsi saat halaman dimuat untuk mengatur status awal
-        document.addEventListener('DOMContentLoaded', toggleC12Input);
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Ambil semua checkbox e20_checkbox
+            // Fungsi untuk mengatur checkbox e20_checkbox
             const e20Checkboxes = document.querySelectorAll('input[name^="e20_checkbox_"]');
 
-            // Fungsi untuk mengatur checkbox
             function toggleE20Checkboxes() {
                 e20Checkboxes.forEach(checkbox => {
                     checkbox.addEventListener('change', function() {
@@ -835,11 +826,8 @@
 
             // Panggil fungsi saat halaman dimuat
             toggleE20Checkboxes();
-        });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log("DOM fully loaded and parsed");
-
+            // Fungsi untuk mengatur f21_checkbox dan g_checkbox
             const f21CheckboxA = document.getElementById('f21_checkbox_a');
             const f21CheckboxB = document.getElementById('f21_checkbox_b');
             const f21CheckboxC = document.getElementById('f21_checkbox_c');
@@ -889,6 +877,7 @@
                     f21CheckboxC.disabled = true;
                     console.log("Disabled f21_checkbox_b and f21_checkbox_c");
                 } else {
+                    f21Input.value = 0;
                     f21Input.removeAttribute('readonly'); // Hapus readonly dari input f21
                     toggleCheckboxes(f21CheckboxA, [gCheckboxB, gCheckboxE, gCheckboxG, gCheckboxI, gCheckboxJ, gCheckboxK]);
                     f21CheckboxB.disabled = false;
@@ -933,11 +922,81 @@
                 }
             }
 
+            // Jalankan fungsi saat halaman dimuat
+            handleF21CheckboxA();
+            handleF21CheckboxB();
+            handleF21CheckboxC();
+
+            // Tambahkan event listener untuk perubahan checkbox
             f21CheckboxA.addEventListener('change', handleF21CheckboxA);
             f21CheckboxB.addEventListener('change', handleF21CheckboxB);
             f21CheckboxC.addEventListener('change', handleF21CheckboxC);
 
             console.log("Event listeners added for f21_checkbox_a, f21_checkbox_b, and f21_checkbox_c");
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("DOM fully loaded and parsed");
+
+            // Fungsi untuk menonaktifkan checkbox G tertentu berdasarkan checkbox F21
+            function toggleGCheckboxesBasedOnF21() {
+                const f21CheckboxA = document.getElementById('f21_checkbox_a');
+                const f21CheckboxB = document.getElementById('f21_checkbox_b');
+                const f21CheckboxC = document.getElementById('f21_checkbox_c');
+
+                const gCheckboxB = document.getElementById('g_checkbox_b');
+                const gCheckboxE = document.getElementById('g_checkbox_e');
+                const gCheckboxG = document.getElementById('g_checkbox_g');
+                const gCheckboxI = document.getElementById('g_checkbox_i');
+                const gCheckboxJ = document.getElementById('g_checkbox_j');
+                const gCheckboxK = document.getElementById('g_checkbox_k');
+
+                if (f21CheckboxA.checked) {
+                    // Jika F21 A dicentang, nonaktifkan checkbox G B, E, G, I, J, K
+                    gCheckboxB.disabled = true;
+                    gCheckboxE.disabled = true;
+                    gCheckboxG.disabled = true;
+                    gCheckboxI.disabled = true;
+                    gCheckboxJ.disabled = true;
+                    gCheckboxK.disabled = true;
+                } else if (f21CheckboxB.checked) {
+                    // Jika F21 B dicentang, nonaktifkan checkbox G B, E, G, I, K
+                    gCheckboxB.disabled = true;
+                    gCheckboxE.disabled = true;
+                    gCheckboxG.disabled = true;
+                    gCheckboxI.disabled = true;
+                    gCheckboxK.disabled = true;
+                    gCheckboxJ.checked = true; // Centang checkbox G J
+                } else if (f21CheckboxC.checked) {
+                    // Jika F21 C dicentang, nonaktifkan checkbox G B, E, I, J, K
+                    gCheckboxB.disabled = true;
+                    gCheckboxE.disabled = true;
+                    gCheckboxI.disabled = true;
+                    gCheckboxJ.disabled = true;
+                    gCheckboxK.disabled = true;
+                    gCheckboxG.checked = true; // Centang checkbox G G
+                } else {
+                    // Jika tidak ada yang dicentang, aktifkan semua checkbox G
+                    gCheckboxB.disabled = false;
+                    gCheckboxE.disabled = false;
+                    gCheckboxG.disabled = false;
+                    gCheckboxI.disabled = false;
+                    gCheckboxJ.disabled = false;
+                    gCheckboxK.disabled = false;
+                }
+            }
+
+            // Tambahkan event listener untuk checkbox F21
+            const f21CheckboxA = document.getElementById('f21_checkbox_a');
+            const f21CheckboxB = document.getElementById('f21_checkbox_b');
+            const f21CheckboxC = document.getElementById('f21_checkbox_c');
+
+            f21CheckboxA.addEventListener('change', toggleGCheckboxesBasedOnF21);
+            f21CheckboxB.addEventListener('change', toggleGCheckboxesBasedOnF21);
+            f21CheckboxC.addEventListener('change', toggleGCheckboxesBasedOnF21);
+
+            // Jalankan fungsi saat halaman dimuat
+            toggleGCheckboxesBasedOnF21();
         });
     </script>
 </body>

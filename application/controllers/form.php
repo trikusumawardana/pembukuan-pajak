@@ -31,8 +31,7 @@ class Form extends CI_Controller
         $this->db->where('npwp_user', $npwp);
         $data['total_penghasilan_neto_d'] = $this->db->get('form-lima-d')->row()->penghasilan_neto_d ?? 0;
 
-
-        // Ambil total penghasilan_neto_d dari form-lima-d
+        // Ambil total jumlah_pph_yang_dipotong dari form-tiga
         $this->db->select_sum('jumlah_pph_yang_dipotong');
         $this->db->where('npwp_user', $npwp);
         $data['total_jumlah_pph_yang_dipotong'] = $this->db->get('form-tiga')->row()->jumlah_pph_yang_dipotong ?? 0;
@@ -112,7 +111,7 @@ class Form extends CI_Controller
         }
 
         // Jika c12_checkbox tidak dicentang, set nilai c12 ke 0
-        if ($form_index_b['c12_checkbox'] !== 'on') {
+        if ($form_index_b['c12_checkbox'] !== '1') {
             $form_index_b['c12'] = 0;
         }
 
@@ -129,8 +128,10 @@ class Form extends CI_Controller
             redirect('auth');
         }
 
-        // Bersihkan input NPWP
+        // Ambil data dari form
         $postData = $this->input->post();
+
+        // Bersihkan input NPWP
         $postData['npwp'] = preg_replace('/[^0-9]/', '', $postData['npwp'] ?? '');
 
         // Validasi panjang NPWP
@@ -169,6 +170,7 @@ class Form extends CI_Controller
             $postData[$checkbox] = isset($postData[$checkbox]) ? 1 : 0;
         }
 
+        // Hapus field 'action' dari data yang akan diupdate
         unset($postData['action']);
 
         // Data untuk form_index_a
