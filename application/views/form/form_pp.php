@@ -34,11 +34,21 @@
             </div>
             <div class="yellow-box">
                 <p style="text-transform:uppercase;"><?= $user['nama_lengkap']; ?></p>
-                <p><?= $user['npwp']; ?></p>
+                <p><?= formatNPWP($user['npwp']); ?></p>
                 <p style="text-transform:uppercase;"><?= $user['alamat']; ?></p>
             </div>
         </div>
     </div>
+
+    <?php
+    function formatNPWP($npwp)
+    {
+        // Hapus semua karakter non-angka
+        $npwp = preg_replace('/\D/', '', $npwp);
+        // Format NPWP dengan simbol
+        return substr($npwp, 0, 2) . '.' . substr($npwp, 2, 3) . '.' . substr($npwp, 5, 3) . '.' . substr($npwp, 8, 1) . '-' . substr($npwp, 9, 3) . '.' . substr($npwp, 12, 3);
+    }
+    ?>
 
     <?php
     $totalBruto = 0;
@@ -100,7 +110,7 @@
                 <?= $pagination; ?>
             </div>
         </div>
-        
+
         <div class="table-controls">
             <div class="container mt-4 ">
                 <table class="table">

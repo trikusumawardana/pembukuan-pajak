@@ -87,7 +87,7 @@
             </div>
             <div class="yellow-box">
                 <p style="text-transform:uppercase;"><?= $user['nama_lengkap']; ?></p>
-                <p><?= $user['npwp']; ?></p>
+                <p><?= formatNPWP($user['npwp']); ?></p>
             </div>
         </div>
     </div>
