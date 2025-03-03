@@ -152,14 +152,27 @@
 
                 $data_to_display_a = ($mode_a === 'edit') ? $form_data_a : $data_a;
 
+                // Di bagian tabel A, baris ke-16
                 foreach ($data_to_display_a as $index => $row) {
                     $jenis_penghasilan_a = $row['jenis_penghasilan'] ?? ($row[0] ?? '');
                     $dasar_pengenaan_pajak_a = $row['dasar_pengenaan_pajak'] ?? ($row[1] ?? 0);
                     $pph_terutang_a = $row['pph_terutang'] ?? ($row[2] ?? 0);
 
+                    // Jika ini baris ke-16
+                    if ($index + 1 == 16) {
+                        // Jika opsi Ya di-checked dan kirim_status adalah 'ya', isi dengan total dari form-pp
+                        if ($checkbox_status == 1 && $kirim_status == 'ya') {
+                            $dasar_pengenaan_pajak_a = $total_bruto_pp; // Isi dengan total perederan_bruto
+                            $pph_terutang_a = $total_pph_pp; // Isi dengan total jumlahPPh
+                        } else {
+                            // Jika opsi Tidak di-checked atau kirim_status adalah 'tidak', isi dengan 0
+                            $dasar_pengenaan_pajak_a = 0;
+                            $pph_terutang_a = 0;
+                        }
+                    }
+
                     echo '<tr>';
                     echo '<td class="bordered-cell">' . ($index + 1) . '.</td>';
-
                     echo '<td class="bordered-cell"><textarea class="dynamic-input" name="jenis_penghasilan[]" readonly>' . htmlspecialchars($jenis_penghasilan_a, ENT_QUOTES, 'UTF-8') . '</textarea></td>';
 
                     // Nonaktifkan input untuk nomor 13

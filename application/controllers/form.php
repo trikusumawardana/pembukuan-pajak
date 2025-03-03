@@ -553,6 +553,21 @@ class Form extends CI_Controller
         $existing_checkbox = $this->db->get_where('form-dua-checkbox', ['npwp_user' => $npwp])->row_array();
         $data['checkbox_status'] = $existing_checkbox['checkbox'] ?? 0; // Default unchecked jika tidak ada data
 
+        // Ambil status kirim dari tabel form-pp-kirim
+        $kirim_status = $this->db->get_where('form-pp-kirim', ['npwp_user' => $npwp])->row_array();
+        $data['kirim_status'] = $kirim_status['kirim'] ?? 'tidak'; // Default 'tidak' jika tidak ada data
+
+        // Ambil total perederan_bruto dan jumlahPPh dari form-pp jika opsi Ya di-checked dan kirim_status adalah 'ya'
+        $data['total_bruto_pp'] = 0;
+        $data['total_pph_pp'] = 0;
+        if ($data['checkbox_status'] == 1 && $data['kirim_status'] == 'ya') {
+            $total_bruto_pp = $this->db->select_sum('perederan_bruto')->where('npwp_user', $npwp)->get('form-pp')->row()->perederan_bruto;
+            $total_pph_pp = $this->db->select_sum('jumlah_pph')->where('npwp_user', $npwp)->get('form-pp')->row()->jumlah_pph;
+
+            $data['total_bruto_pp'] = $total_bruto_pp ?? 0;
+            $data['total_pph_pp'] = $total_pph_pp ?? 0;
+        }
+
         $data['mode_a'] = !empty($data['form_data_a']) ? 'edit' : 'input';
         $data['mode_b'] = !empty($data['form_data_b']) ? 'edit' : 'input';
 
