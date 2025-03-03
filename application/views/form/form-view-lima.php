@@ -200,7 +200,7 @@
                     <?php foreach ($form_lima_c as $row): ?>
                         <tr>
                             <td class="bordered-cell"><?= formatNPWP($row['npwp_pemberi_kerja']) ?></td>
-                            <td class="bordered-cell"><?= $row['nama_pemberi_kerja'] ?></td>
+                            <td style="text-transform:uppercase;" class="bordered-cell"><?= $row['nama_pemberi_kerja'] ?></td>
                             <td class="bordered-cell"><?= formatNumber($row['penghasilan_bruto']) ?></td>
                             <td class="bordered-cell"><?= formatNumber($row['pengurangan_penghasilan_bruto']) ?></td>
                             <td class="bordered-cell"><?= formatNumber($row['penghasilan_neto_c']) ?></td>
