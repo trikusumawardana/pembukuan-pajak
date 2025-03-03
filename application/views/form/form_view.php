@@ -566,7 +566,7 @@
             <div class="statement-section">
                 <div class="statement-header">
                     <label><input type="radio" name="statement" value="Wajib Pajak" checked> WAJIB PAJAK</label>
-                    <label><input type="radio" name="statement" value="Kuasa"> KUASA</label>
+                    <label><input type="radio" name="statement" value="Kuasa" disabled> KUASA</label>
                 </div>
                 <div class="statement-content">
                     <p>
@@ -574,7 +574,7 @@
                     </p>
                     <div class="date-container">
                         <span>TANGGAL</span>
-                        <input type="date" value="" id="tanggal">
+                        <input type="date" value="<?= $form_index_b['tanggal'] ?? '' ?>" id="tanggal" name="tanggal">
                     </div><br> <br> <br>
                 </div>
                 <div class="signature-box">
