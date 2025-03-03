@@ -938,6 +938,54 @@
         document.addEventListener('DOMContentLoaded', function() {
             console.log("DOM fully loaded and parsed");
 
+            function toggleB10AndB11() {
+                const statusRadios = document.querySelectorAll('input[name="status_kewajiban_perpajakan"]');
+                const b10Radio = document.getElementById('b10_radio');
+                const b11Option = document.getElementById('b11_option');
+
+                // Fungsi untuk mengatur tampilan berdasarkan status yang dipilih
+                function updateDisplay(selectedStatus) {
+                    if (selectedStatus === 'KK') {
+                        // Tampilkan semua opsi pada b10_radio dan b11_option
+                        b10Radio.querySelectorAll('input[type="radio"]').forEach(radio => {
+                            radio.style.display = 'inline-block';
+                        });
+                        b11Option.style.display = 'inline-block';
+                    } else if (selectedStatus === 'HB') {
+                        // Tampilkan hanya TK pada b10_radio dan semua opsi pada b11_option
+                        b10Radio.querySelectorAll('input[type="radio"]').forEach(radio => {
+                            if (radio.value === 'TK') {
+                                radio.style.display = 'inline-block';
+                            } else {
+                                radio.style.display = 'none';
+                            }
+                        });
+                        b11Option.style.display = 'inline-block';
+                    } else if (selectedStatus === 'PH' || selectedStatus === 'MT') {
+                        // Sembunyikan semua opsi pada b10_radio dan b11_option
+                        b10Radio.querySelectorAll('input[type="radio"]').forEach(radio => {
+                            radio.style.display = 'none';
+                        });
+                        b11Option.style.display = 'none';
+                    }
+                }
+
+                // Jalankan fungsi saat halaman dimuat
+                const selectedStatus = document.querySelector('input[name="status_kewajiban_perpajakan"]:checked')?.value;
+                updateDisplay(selectedStatus);
+
+                // Tambahkan event listener untuk perubahan status
+                statusRadios.forEach(radio => {
+                    radio.addEventListener('change', function() {
+                        const selectedStatus = document.querySelector('input[name="status_kewajiban_perpajakan"]:checked')?.value;
+                        updateDisplay(selectedStatus);
+                    });
+                });
+            }
+
+            // Panggil fungsi saat halaman dimuat
+            toggleB10AndB11();
+
             // Fungsi untuk menonaktifkan checkbox G tertentu berdasarkan checkbox F21
             function toggleGCheckboxesBasedOnF21() {
                 const f21CheckboxA = document.getElementById('f21_checkbox_a');
