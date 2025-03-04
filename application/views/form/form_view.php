@@ -550,7 +550,10 @@
                         <label><input type="checkbox" id="g_checkbox_h" name="g_checkbox_h" <?= $form_index_b['g_checkbox_h'] ? 'checked' : '' ?>><input type="text"></label>
                         <label><input type="checkbox" id="g_checkbox_i" name="g_checkbox_i" <?= $form_index_b['g_checkbox_i'] ? 'checked' : '' ?>> PERHITUNGAN PPh TERUTANG BAGI WAJIB PAJAK DENGAN STATUS PERPAJAKAN PH ATAU MT</label>
                         <label><input type="checkbox" id="g_checkbox_j" name="g_checkbox_j" <?= $form_index_b['g_checkbox_j'] ? 'checked' : '' ?>> DAFTAR JUMLAH MENGHASILAN DAN PEMBAYARAN PPh PASAL 25 (KHUSUS UNTUK ORANG PRIBADI PENGUSAHA TERTENTU)</label>
-                        <label><input type="checkbox" id="g_checkbox_k" name="g_checkbox_k" <?= $form_index_b['g_checkbox_k'] ? 'checked' : '' ?>> DAFTAR JUMLAH PEREDERAN BRUTO DAN PEMBAYARAN PPh FINAL BERDASARKAN PPh 46 TAHUN 2013 PER MASA PAJAK DAN PER TEMPAT USAHA</label>
+                        <label>
+                            <input type="checkbox" id="g_checkbox_k" name="g_checkbox_k" <?= isset($form_index_b['g_checkbox_k']) && $form_index_b['g_checkbox_k'] === '1' ? 'checked' : '' ?>>
+                            DAFTAR JUMLAH PEREDERAN BRUTO DAN PEMBAYARAN PPh FINAL BERDASARKAN PPh 46 TAHUN 2013 PER MASA PAJAK DAN PER TEMPAT USAHA
+                        </label>
                         <label><input type="checkbox" id="g_checkbox_l" name="g_checkbox_l" <?= $form_index_b['g_checkbox_l'] ? 'checked' : '' ?>><input type="text"></label>
                     </div>
                 </div>

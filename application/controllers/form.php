@@ -36,6 +36,10 @@ class Form extends CI_Controller
         $this->db->where('npwp_user', $npwp);
         $data['total_jumlah_pph_yang_dipotong'] = $this->db->get('form-tiga')->row()->jumlah_pph_yang_dipotong ?? 0;
 
+        // Ambil data form-pp-kirim
+        $form_pp_kirim = $this->db->get_where('form-pp-kirim', ['npwp_user' => $npwp])->row_array();
+        $data['form_pp_kirim'] = $form_pp_kirim;
+
         // Ambil data form_index_a, jika tidak ditemukan, inisialisasi dengan array kosong
         $form_index_a = $this->db->get_where('form_index_a', ['npwp' => $npwp])->row_array();
         if (!$form_index_a) {
@@ -113,6 +117,11 @@ class Form extends CI_Controller
         // Jika c12_checkbox tidak dicentang, set nilai c12 ke 0
         if ($form_index_b['c12_checkbox'] !== '1') {
             $form_index_b['c12'] = 0;
+        }
+
+        // Jika kirim pada form-pp-kirim adalah 'ya', set g_checkbox_k ke '1'
+        if ($form_pp_kirim && $form_pp_kirim['kirim'] === 'ya') {
+            $form_index_b['g_checkbox_k'] = '1';
         }
 
         $data['form_index_a'] = $form_index_a;
