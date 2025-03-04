@@ -33,6 +33,7 @@
 
         </div>
         <div class="form-right">
+            <button type="submit" form="form-identitas" name="action" value="phmt" class="btn-grey">PH-MT</button>
             <button type="submit" form="form-identitas" name="action" value="submit" class="btn-grey">SUBMIT</button>
             <div class="year-container">
                 <div class="year-box">2</div>
@@ -602,6 +603,47 @@
         document.addEventListener('DOMContentLoaded', function() {
             console.log("DOM fully loaded and parsed");
 
+            // Ambil elemen-elemen yang diperlukan
+            const statusRadios = document.querySelectorAll('input[name="status_kewajiban_perpajakan"]');
+            const b10Input = document.querySelector('input[name="b10"]');
+            const submitButton = document.querySelector('button[value="submit"]');
+            const phMtButton = document.querySelector('button[value="phmt"]');
+
+            // Fungsi untuk mengatur tampilan berdasarkan status yang dipilih
+            function updateDisplay(selectedStatus) {
+                console.log("Selected status:", selectedStatus); // Debugging
+
+                if (selectedStatus === 'PH' || selectedStatus === 'MT') {
+                    // Set nilai b10 menjadi 0
+                    b10Input.value = 0;
+                    b10Input.readOnly = true;
+
+                    // Sembunyikan tombol submit dan tampilkan tombol ph-mt
+                    submitButton.style.display = 'none';
+                    phMtButton.style.display = 'inline-block';
+                } else {
+                    // Kembalikan nilai b10 ke nilai semula dan hapus readonly
+                    b10Input.readOnly = false;
+                    calculateB10(); // Fungsi untuk menghitung nilai b10
+
+                    // Tampilkan tombol submit dan sembunyikan tombol ph-mt
+                    submitButton.style.display = 'inline-block';
+                    phMtButton.style.display = 'none';
+                }
+            }
+
+            // Jalankan fungsi saat halaman dimuat
+            const selectedStatus = document.querySelector('input[name="status_kewajiban_perpajakan"]:checked')?.value;
+            updateDisplay(selectedStatus);
+
+            // Tambahkan event listener untuk perubahan status
+            statusRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const selectedStatus = document.querySelector('input[name="status_kewajiban_perpajakan"]:checked')?.value;
+                    updateDisplay(selectedStatus);
+                });
+            });
+
             // Format NPWP
             document.getElementById('npwp').addEventListener('input', function(e) {
                 let value = e.target.value.replace(/\D/g, '');
@@ -618,8 +660,6 @@
                 e.target.value = formatted;
             });
 
-            // Toggle NPWP Suami/Istri
-            const statusRadios = document.querySelectorAll('input[name="status_kewajiban_perpajakan"]');
             const npwpSuamiIstriInput = document.querySelector('input[name="npwp_suami_istri"]');
 
             function toggleNPWPSuamiIstri() {
