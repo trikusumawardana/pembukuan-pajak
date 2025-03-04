@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2025 at 08:16 AM
+-- Generation Time: Mar 04, 2025 at 02:57 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,22 +40,22 @@ CREATE TABLE `form-dua-a` (
 --
 
 INSERT INTO `form-dua-a` (`id`, `npwp_user`, `jenis_penghasilan`, `dasar_pengenaan_pajak`, `pph_terutang`) VALUES
-(2149, '123451234512345', 'BUNGA DEPOSITO, TABUNGAN, DISKONTO SBI, SURAT BERHARGA NEGARA', '1000000', '200000'),
-(2150, '123451234512345', 'BUNGA/DISKONTO OBLIGASI', '3000000', '1000000'),
-(2151, '123451234512345', 'PENJUALAN SAHAM DI BURSA EFEK', '300000', '20000'),
-(2152, '123451234512345', 'HADIAH UNDIAN', '0', '0'),
-(2153, '123451234512345', 'PESANGON, TUNJANGAN HARI TUA DAN TEBUSAN PENSIUN YANG DIBAYAR SEKALIGUS', '0', '0'),
-(2154, '123451234512345', 'HONORARIUM ATAS BEBAN APBN / APBD', '0', '0'),
-(2155, '123451234512345', 'PENGALIHAN HAK ATAS TANAH DAN/ATAU BANGUNAN', '0', '0'),
-(2156, '123451234512345', 'BANGUNAN YANG DITERIMA DALAM RANGKA BANGUNAN GUNA SERAH', '0', '0'),
-(2157, '123451234512345', 'SEWA ATAS TANAH DAN/ATAU BANGUNAN', '0', '0'),
-(2158, '123451234512345', 'USAHA JASA KONSTRUKSI', '0', '0'),
-(2159, '123451234512345', 'PENYALUR/DEALER/AGEN PRODUK BBM', '0', '0'),
-(2160, '123451234512345', 'BUNGA SIMPANAN YANG DIBAYARKAN OLEH KOPERASI', '0', '0'),
-(2161, '123451234512345', 'PENGHASILAN DARI TRANSAKSI DERIVATIF', '0', '0'),
-(2162, '123451234512345', 'DIVIDEN', '0', '0'),
-(2163, '123451234512345', 'PENGHASILAN ISTERI DARI SATU PEMBERI KERJA', '0', '0'),
-(2164, '123451234512345', 'PENGHASILAN LAIN YANG DIKENAKAN PAJAK FINAL DAN/ATAU BERSIFAT FINAL', '0', '0');
+(2549, '123451234512345', 'BUNGA DEPOSITO, TABUNGAN, DISKONTO SBI, SURAT BERHARGA NEGARA', '1000000', '200000'),
+(2550, '123451234512345', 'BUNGA/DISKONTO OBLIGASI', '3000000', '1000000'),
+(2551, '123451234512345', 'PENJUALAN SAHAM DI BURSA EFEK', '300000', '20000'),
+(2552, '123451234512345', 'HADIAH UNDIAN', '0', '0'),
+(2553, '123451234512345', 'PESANGON, TUNJANGAN HARI TUA DAN TEBUSAN PENSIUN YANG DIBAYAR SEKALIGUS', '0', '0'),
+(2554, '123451234512345', 'HONORARIUM ATAS BEBAN APBN / APBD', '0', '0'),
+(2555, '123451234512345', 'PENGALIHAN HAK ATAS TANAH DAN/ATAU BANGUNAN', '0', '0'),
+(2556, '123451234512345', 'BANGUNAN YANG DITERIMA DALAM RANGKA BANGUNAN GUNA SERAH', '0', '0'),
+(2557, '123451234512345', 'SEWA ATAS TANAH DAN/ATAU BANGUNAN', '0', '0'),
+(2558, '123451234512345', 'USAHA JASA KONSTRUKSI', '0', '0'),
+(2559, '123451234512345', 'PENYALUR/DEALER/AGEN PRODUK BBM', '0', '0'),
+(2560, '123451234512345', 'BUNGA SIMPANAN YANG DIBAYARKAN OLEH KOPERASI', '0', '0'),
+(2561, '123451234512345', 'PENGHASILAN DARI TRANSAKSI DERIVATIF', '0', '0'),
+(2562, '123451234512345', 'DIVIDEN', '0', '0'),
+(2563, '123451234512345', 'PENGHASILAN ISTERI DARI SATU PEMBERI KERJA', '0', '0'),
+(2564, '123451234512345', 'PENGHASILAN LAIN YANG DIKENAKAN PAJAK FINAL DAN/ATAU BERSIFAT FINAL', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -75,12 +75,12 @@ CREATE TABLE `form-dua-b` (
 --
 
 INSERT INTO `form-dua-b` (`id`, `npwp_user`, `jenis_penghasilan_b`, `dasar_pengenaan_pajak_b`) VALUES
-(778, '123451234512345', 'BANTUAN / SUMBANGAN / HIBAH', '10000000'),
-(779, '123451234512345', 'WARISAN', '100000'),
-(780, '123451234512345', 'BAGIAN LABA ANGGOTA PERSEORAN KOMANDITER TIDAK ATA', '900000'),
-(781, '123451234512345', 'KLAIM ASURANSI KESEHATAN, KECELAKAAN, JIWA, DWIGUN', '10000'),
-(782, '123451234512345', 'BEASISWA', '0'),
-(783, '123451234512345', 'PENGHASILAN LAIN YANG TIDAK TERMASUK OBJEK PAJAK', '0');
+(928, '123451234512345', 'BANTUAN / SUMBANGAN / HIBAH', '10000000'),
+(929, '123451234512345', 'WARISAN', '100000'),
+(930, '123451234512345', 'BAGIAN LABA ANGGOTA PERSEORAN KOMANDITER TIDAK ATA', '900000'),
+(931, '123451234512345', 'KLAIM ASURANSI KESEHATAN, KECELAKAAN, JIWA, DWIGUN', '10000'),
+(932, '123451234512345', 'BEASISWA', '0'),
+(933, '123451234512345', 'PENGHASILAN LAIN YANG TIDAK TERMASUK OBJEK PAJAK', '0');
 
 -- --------------------------------------------------------
 
@@ -99,7 +99,7 @@ CREATE TABLE `form-dua-checkbox` (
 --
 
 INSERT INTO `form-dua-checkbox` (`id`, `npwp_user`, `checkbox`) VALUES
-(7, '123451234512345', '0');
+(7, '123451234512345', '1');
 
 -- --------------------------------------------------------
 
@@ -127,7 +127,7 @@ CREATE TABLE `form-empat-a` (
 --
 
 INSERT INTO `form-empat-a` (`id`, `npwp_user`, `pembukuan_laporan`, `opini_akuntan`, `nama_akuntan`, `npwp_akuntan`, `nama_kantor_akuntan`, `npwp_kantor_akuntan`, `nama_konsultan`, `npwp_konsultan`, `nama_kantor_konsultan`, `npwp_kantor_konsultan`) VALUES
-(5, '123451234512345', 'Tidak Diaudit', '1. Wajar Tanpa Pengecualian', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(5, '123451234512345', 'Di Audit', '1. Wajar Tanpa Pengecualian', '444444444444444', 'LARY BE WITH YOU', '422222222222222', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -185,11 +185,11 @@ CREATE TABLE `form-lima-b` (
 --
 
 INSERT INTO `form-lima-b` (`id`, `npwp_user`, `jenis_usaha`, `perederan_usaha`, `norma`, `penghasilan_neto`) VALUES
-(631, '123451234512345', 'DAGANG', '0', '', '0'),
-(632, '123451234512345', 'INDUSTRI', '0', '', '0'),
-(633, '123451234512345', 'JASA', '0', '', '0'),
-(634, '123451234512345', 'PEKERJAAN BEBAS', '0', '', '0'),
-(635, '123451234512345', 'USAHA LAINNYA', '0', '', '0');
+(696, '123451234512345', 'DAGANG', '0', '', '0'),
+(697, '123451234512345', 'INDUSTRI', '0', '', '0'),
+(698, '123451234512345', 'JASA', '0', '', '0'),
+(699, '123451234512345', 'PEKERJAAN BEBAS', '0', '', '0'),
+(700, '123451234512345', 'USAHA LAINNYA', '0', '', '0');
 
 -- --------------------------------------------------------
 
@@ -232,12 +232,12 @@ CREATE TABLE `form-lima-d` (
 --
 
 INSERT INTO `form-lima-d` (`id`, `npwp_user`, `jenis_usaha_d`, `penghasilan_neto_d`) VALUES
-(775, '123451234512345', 'BUNGA', '30000'),
-(776, '123451234512345', 'ROYALTI', '20000'),
-(777, '123451234512345', 'SEWA', '50000'),
-(778, '123451234512345', 'PENGHARGAAN DAN HADIAH', '0'),
-(779, '123451234512345', 'KEUNTUNGAN DARI PENJUALAN/PENGALIHAN HARTA', '0'),
-(780, '123451234512345', 'PENGHASILAN LAINNYA', '0');
+(853, '123451234512345', 'BUNGA', '30000'),
+(854, '123451234512345', 'ROYALTI', '20000'),
+(855, '123451234512345', 'SEWA', '50000'),
+(856, '123451234512345', 'PENGHARGAAN DAN HADIAH', '0'),
+(857, '123451234512345', 'KEUNTUNGAN DARI PENJUALAN/PENGALIHAN HARTA', '0'),
+(858, '123451234512345', 'PENGHASILAN LAINNYA', '0');
 
 -- --------------------------------------------------------
 
@@ -254,6 +254,33 @@ CREATE TABLE `form-pp` (
   `perederan_bruto` varchar(50) NOT NULL,
   `jumlah_pph` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `form-pp`
+--
+
+INSERT INTO `form-pp` (`id`, `npwp_user`, `npwp`, `masa_pajak`, `alamat`, `perederan_bruto`, `jumlah_pph`) VALUES
+(4, '123451234512345', '123451234512345', 'Januari', 'semarang', '3000000', '15000'),
+(6, '123451234512345', '123451234512345', 'Januari', 'kudus', '2000000', '10000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `form-pp-kirim`
+--
+
+CREATE TABLE `form-pp-kirim` (
+  `id` int(11) NOT NULL,
+  `npwp_user` varchar(50) NOT NULL,
+  `kirim` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `form-pp-kirim`
+--
+
+INSERT INTO `form-pp-kirim` (`id`, `npwp_user`, `kirim`) VALUES
+(1, '123451234512345', 'ya');
 
 -- --------------------------------------------------------
 
@@ -635,6 +662,12 @@ ALTER TABLE `form-pp`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `form-pp-kirim`
+--
+ALTER TABLE `form-pp-kirim`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `form-satu-a`
 --
 ALTER TABLE `form-satu-a`
@@ -708,13 +741,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `form-dua-a`
 --
 ALTER TABLE `form-dua-a`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2165;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2565;
 
 --
 -- AUTO_INCREMENT for table `form-dua-b`
 --
 ALTER TABLE `form-dua-b`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=784;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=934;
 
 --
 -- AUTO_INCREMENT for table `form-dua-checkbox`
@@ -738,7 +771,7 @@ ALTER TABLE `form-empat-b`
 -- AUTO_INCREMENT for table `form-lima-b`
 --
 ALTER TABLE `form-lima-b`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=636;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=701;
 
 --
 -- AUTO_INCREMENT for table `form-lima-c`
@@ -750,13 +783,19 @@ ALTER TABLE `form-lima-c`
 -- AUTO_INCREMENT for table `form-lima-d`
 --
 ALTER TABLE `form-lima-d`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=781;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=859;
 
 --
 -- AUTO_INCREMENT for table `form-pp`
 --
 ALTER TABLE `form-pp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `form-pp-kirim`
+--
+ALTER TABLE `form-pp-kirim`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `form-satu-a`
