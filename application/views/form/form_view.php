@@ -33,7 +33,7 @@
 
         </div>
         <div class="form-right">
-            <button type="submit" form="form-identitas" name="action" value="phmt" class="btn-grey" formaction="<?= site_url('form/phmt') ?>">PH-MT</button>
+            <button type="submit" form="form-identitas" name="action" value="phmt" class="btn-grey">PH-MT</button>
             <button type="submit" form="form-identitas" name="action" value="submit" class="btn-grey">SUBMIT</button>
             <div class="year-container">
                 <div class="year-box">2</div>
@@ -643,6 +643,8 @@
                     updateDisplay(selectedStatus);
                 });
             });
+
+
 
             // Format NPWP
             document.getElementById('npwp').addEventListener('input', function(e) {

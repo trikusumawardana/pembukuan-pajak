@@ -256,6 +256,8 @@ class Form extends CI_Controller
         // Redirect sesuai tombol yang diklik
         if ($this->input->post('action') === 'sebelumnya') {
             redirect('form/form_lima'); // Pindah ke halaman form_lima setelah save
+        } else if ($this->input->post('action') === 'phmt') {
+            redirect('form/phmt'); // Pindah ke halaman bayar setelah save
         } else {
             redirect('bayar'); // Pindah ke halaman bayar setelah save
         }
@@ -1208,16 +1210,27 @@ class Form extends CI_Controller
 
     public function phmt()
     {
-        // Ambil data dari session atau input form jika diperlukan
         $npwp = $this->session->userdata('npwp');
         if (!$npwp) {
-            redirect('auth'); // Redirect ke halaman auth jika tidak ada session npwp
+            redirect('auth');
         }
 
-        // Lakukan logika khusus untuk halaman PH-MT di sini
-        // Contoh: Ambil data dari database atau proses data yang dikirim dari form
+        // Ambil data tabel lain
+        $data['user'] = $this->db->get_where('user', ['npwp' => $npwp])->row_array();
+        $data['form_empat_b'] = $this->db->get_where('form-empat-b', ['npwp_user' => $npwp])->row_array();
 
+        // Ambil total penghasilan_neto_c dari form-lima-c
+        $this->db->select_sum('penghasilan_neto_c');
+        $this->db->where('npwp_user', $npwp);
+        $data['total_penghasilan_neto_c'] = $this->db->get('form-lima-c')->row()->penghasilan_neto_c ?? 0;
+
+        // Ambil total penghasilan_neto_d dari form-lima-d
+        $this->db->select_sum('penghasilan_neto_d');
+        $this->db->where('npwp_user', $npwp);
+        $data['total_penghasilan_neto_d'] = $this->db->get('form-lima-d')->row()->penghasilan_neto_d ?? 0;
+
+        // Lakukan logika khusus untuk halaman PH-MT di sini
         // Load view untuk halaman PH-MT
-        $this->load->view('form/phmt_view');
+        $this->load->view('form/pmht_view', $data);
     }
 }

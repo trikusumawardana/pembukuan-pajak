@@ -55,3 +55,4 @@ $route['translate_uri_dashes'] = FALSE;
 
 // Add routes for your controllers
 $route['form/hapus_data_harta'] = 'form/hapus_data_harta';
+$route['form/phmt'] = 'form/phmt';
