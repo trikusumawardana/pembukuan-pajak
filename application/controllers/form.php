@@ -1206,5 +1206,18 @@ class Form extends CI_Controller
         }
     }
 
-    
+    public function phmt()
+    {
+        // Ambil data dari session atau input form jika diperlukan
+        $npwp = $this->session->userdata('npwp');
+        if (!$npwp) {
+            redirect('auth'); // Redirect ke halaman auth jika tidak ada session npwp
+        }
+
+        // Lakukan logika khusus untuk halaman PH-MT di sini
+        // Contoh: Ambil data dari database atau proses data yang dikirim dari form
+
+        // Load view untuk halaman PH-MT
+        $this->load->view('form/phmt_view');
+    }
 }
