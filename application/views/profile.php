@@ -23,49 +23,39 @@
                 <h3>Menu Profil</h3>
                 <ul>
                     <li><a href="#"><i class="fa fa-user"></i> Data Profil</a></li>
-                    <li><a href="#"><i class="fa fa-lock"></i> Ubah Kata Sandi</a></li>
-                    <li><a href="#"><i class="fa fa-bell"></i> Aktivasi Fitur Layanan</a></li>
+
                     <li><a href="#" class="btn btn-warning"><i class="fa fa-info-circle"></i> Petunjuk</a></li>
                 </ul>
                 <p class="mt-4 text-yellow">
                     Menu ini digunakan untuk melihat data wajib pajak yang telah terdaftar sebagai pengguna DJP Online.
                     <br>
-                    Di menu ini Anda dapat:
+                    Di menu ini Anda dapat Melihat profil lengkap Anda
                     <br>
-                    1. Melihat profil lengkap Anda
-                    <br>
-                    2. Mengubah data profil (email dan nomor handphone)
+                    <!-- 2. Mengubah data profil (email dan nomor handphone) -->
                 </p>
             </div>
         </div>
+        <?php
+        function formatNPWP($npwp)
+        {
+            // Hapus semua karakter non-angka
+            $npwp = preg_replace('/\D/', '', $npwp);
+            // Format NPWP dengan simbol
+            return substr($npwp, 0, 2) . '.' . substr($npwp, 2, 3) . '.' . substr($npwp, 5, 3) . '.' . substr($npwp, 8, 1) . '-' . substr($npwp, 9, 3) . '.' . substr($npwp, 12, 3);
+        }
+        ?>
         <div class="col-md-9">
             <div class="content">
                 <div class="card card-border">
                     <h4 class="text-primary profile-info">Data Profil</h4>
-                    <ul class="nav nav-tabs" id="profileTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="data-utama-tab" data-toggle="tab" href="#data-utama" role="tab" aria-controls="data-utama" aria-selected="true">Data Utama</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="data-lainnya-tab" data-toggle="tab" href="#data-lainnya" role="tab" aria-controls="data-lainnya" aria-selected="false">Data Lainnya</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="data-klu-tab" data-toggle="tab" href="#data-klu" role="tab" aria-controls="data-klu" aria-selected="false">Data KLU</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="anggota-keluarga-tab" data-toggle="tab" href="#anggota-keluarga" role="tab" aria-controls="anggota-keluarga" aria-selected="false">Anggota Keluarga</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="info-perpajakan-tab" data-toggle="tab" href="#info-perpajakan" role="tab" aria-controls="info-perpajakan" aria-selected="false">Info Perpajakan</a>
-                        </li>
-                    </ul>
+
                     <div class="tab-content mt-3" id="profileTabContent">
                         <div class="tab-pane fade show active" id="data-utama" role="tabpanel" aria-labelledby="data-utama-tab">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="npwp">NPWP</label>
-                                        <input type="text" class="form-control" id="npwp" value="<?= $user['npwp']; ?>" placeholder="NPWP" readonly>
+                                        <input type="text" class="form-control" id="npwp" value="<?= formatNPWP($user['npwp']); ?>" placeholder="NPWP" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="efin">EFIN</label>
@@ -74,11 +64,6 @@
                                     <div class="form-group">
                                         <label for="nama_lengkap">Nama Lengkap</label>
                                         <input type="text" class="form-control" id="nama_lengkap" value="<?= $user['nama_lengkap']; ?>" placeholder="Nama Lengkap" readonly>
-                                    </div>
-                                    <div class="form-group validation-btn">
-                                        <span class="valid-status valid">Status Validitas Data Utama</span>
-                                      <br>
-                                        <button class="btn-valid">Valid</button>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -94,11 +79,7 @@
                                         <label for="no_telpon">No. Telepon</label>
                                         <input type="text" class="form-control" id="no_telpon" value="<?= $user['no_telpon']; ?>" placeholder="No. Telpon" readonly>
                                     </div>
-                                    <div class="form-group validation-btn">
-                                        <span class="valid-status valid">Check Validasi Data</span> <br>
-                                        <button class="btn-validate"><i></i> Validasi Data</button>
-                                        <button class="btn-valid">Valid</button>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

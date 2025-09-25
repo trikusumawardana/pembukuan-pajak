@@ -18,6 +18,18 @@ class Profile extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['npwp' => $npwp])->row_array();
         $data['laporan'] = $this->db->get('laporan')->result_array();
 
+        // Format NPWP dengan pola: ##.###.###.#-###.###
+        if (strlen($data['user']['npwp']) == 15) {
+            $data['formatted_npwp'] = substr($data['user']['npwp'], 0, 2) . '.' .
+                substr($data['user']['npwp'], 2, 3) . '.' .
+                substr($data['user']['npwp'], 5, 3) . '.' .
+                substr($data['user']['npwp'], 8, 1) . '-' .
+                substr($data['user']['npwp'], 9, 3) . '.' .
+                substr($data['user']['npwp'], 12, 3);
+        } else {
+            $data['formatted_npwp'] = $data['user']['npwp'];
+        }
+
         $data['title'] = "Dashboard";
 
         $this->load->view('templates/header', $data);

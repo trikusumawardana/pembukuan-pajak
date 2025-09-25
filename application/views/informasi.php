@@ -81,7 +81,7 @@
 
 
                         <div class="form-group">
-                            <label for="email">Email:</label>
+                            <label for="email">Alamat Email:</label>
                             <input type="email" class="form-control" id="email" value="<?= $user['email']; ?>" readonly>
                         </div>
                         <div class="form-group">
@@ -133,7 +133,7 @@
 
                         <p class="mb-4 mt-5">Anda dapat mengirim NPWP Elektronik ke email Anda dengan menekan tombol dibawah</p>
 
-                        <button type="button" class="btn bg-primary btn-block mb-5" id="kirimEmail"><i class="fa fa-envelope mr-2" aria-hidden="true"></i>Kirim Email</button>
+                        <!-- <button type="button" class="btn bg-primary btn-block mb-5" id="kirimEmail"><i class="fa fa-envelope mr-2" aria-hidden="true"></i>Kirim Email</button> -->
                     </div>
                 </div>
             </div>
